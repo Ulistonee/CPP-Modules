@@ -1,0 +1,6 @@
+cmake-build-debug
+cmake-build-debug/*
+class
+ex00/megaphone
+*.out
+.idea
