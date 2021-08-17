@@ -7,54 +7,55 @@ class Args
 			int		m_argc;
 			char	**m_argv;
 
-			int	ft_toupper(int c)
-			{
-				if (c >= 'a' && c <= 'z')
-				{
-					c = (c - 'a') + 'A';
-				}
-				return (c);
-			}
-
-			char	*to_capital(char *str)
+			void	print() const
 			{
 				int		i;
+				int		j;
 
-				i = 0;
-				while (str[i])
+				i = 1;
+				while (m_argv[i])
 				{
-					str[i] = ft_toupper(str[i]);
-					i++;
-				}
-				return (str);
-			}
-
-			void	print(int count_of_argc)
-			{
-				int		n;
-
-				for (n = 1; n < m_argc; n++)
-				{
-					if (n == count_of_argc - 1)
-						std::cout << "" << to_capital(m_argv[n]) <<"\n";
+					if (i == m_argc - 1)
+					{
+						j = 0;
+						while (m_argv[i][j])
+						{
+							if (m_argv[i][j] >= 'a' && m_argv[i][j] <= 'z')
+							{
+								m_argv[i][j] = (m_argv[i][j] - 'a') + 'A';
+							}
+							std::cout << m_argv[i][j];
+							j++;
+						}
+						std::cout << "\n";
+					}
 					else
-						std::cout << "" << to_capital(m_argv[n]) <<" ";
+					{
+						j = 0;
+						while (m_argv[i][j])
+						{
+							if (m_argv[i][j] >= 'a' && m_argv[i][j] <= 'z') {
+								m_argv[i][j] = (m_argv[i][j] - 'a') + 'A';
+							}
+							std::cout << m_argv[i][j];
+							j++;
+						}
+					}
+					i++;
 				}
 			}
 		};
 
 int			main(int argc, char **argv)
 {
-	Args arguments{argc, argv};
+	Args arguments;
 
-	int		count_of_argc;
+	arguments.m_argc = argc;
+	arguments.m_argv = argv;
 
-	count_of_argc = 0;
-	while (count_of_argc < argc)
-		count_of_argc++;
 	if (argc == 1)
 		std :: cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 	else
-		arguments.print(count_of_argc);
+		arguments.print();
 	return 0;
 }
