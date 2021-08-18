@@ -25,6 +25,6 @@ public:
 	Contact				Aizhan;
 
 	void	parser();
-	int		executor(Contact &data);
+	int		executor(Contact &data) const;
 };
 

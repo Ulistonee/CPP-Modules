@@ -1,4 +1,4 @@
-NAME = phone
+NAME = phonebook
 
 SRCS =		phonebook.cpp \
 
@@ -11,14 +11,13 @@ FLAGS = #-Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
-			#$(CC) $(FLAGS) $(OBJ) -std=c++98 -pedantic -o $(NAME)
-			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+			$(CC) $(FLAGS) $(OBJ) -std=c++98 -pedantic -o $(NAME)
 
 clean:
-			rm -rf $(OBJ)
+			rm -rf *.o
 
 fclean: clean
-			rm -rf $(OBJ)
+			rm -rf *.o phonebook
 
 re: fclean all
 
