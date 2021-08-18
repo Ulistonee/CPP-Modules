@@ -4,5 +4,6 @@ project(CPP_Module_00)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(CPP_Module_00
-        ex00/megaphone.cpp
+        ex01/phonebook.cpp
+        ex01/phonebook.hpp
         )

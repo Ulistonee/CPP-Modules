@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <cstdio>
 
 class Contact
 {
@@ -9,6 +11,8 @@ public:
 	std::string			nickname;
 	int					phone_number;
 	std::string			darkest_secret;
+
+	void	add();
 };
 
 class Phonebook
@@ -20,6 +24,7 @@ public:
 	Contact				Azat;
 	Contact				Aizhan;
 
-	int	parser();
+	void	parser();
+	int		executor(Contact &data);
 };
 

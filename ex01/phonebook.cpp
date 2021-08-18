@@ -1,17 +1,37 @@
 #include "phonebook.hpp"
 
-int		Phonebook::parser() {
+void	Contact::add() {
+	getline(std::cin, first_name);
+	getline(std::cin, last_name);
+	getline(std::cin, nickname);
+	std::cin >> phone_number;
+	std::cin.ignore(32767, '\n');
+	getline(std::cin, darkest_secret);
+}
 
-	while (1)
+int		Phonebook::executor(Contact &contact) {
+	if (this->cmd == "EXIT")
 	{
-		std::cin >> this->cmd;
-		if (this->cmd != "ADD" || this->cmd != "SEARCH" || this->cmd != "EXIT")
+		exit (0);
+	}
+	else if (this->cmd == "ADD")
+	{
+		contact.add();
+	}
+}
+
+void		Phonebook::parser() {
+
+	while (true)
+	{
+		getline(std::cin, this->cmd);
+		if (this->cmd != "ADD" && this->cmd != "SEARCH" && this->cmd != "EXIT")
 		{
 			continue;
 		}
 		else
 		{
-			return (0);
+			return;
 		}
 	}
 }
@@ -20,8 +40,9 @@ int		Phonebook::parser() {
 int			main()
 {
 	Phonebook phonebook;
+	Contact contact;
 
-	if (!phonebook.parser())
+	phonebook.parser();
+	phonebook.executor(contact);
 
 }
-
