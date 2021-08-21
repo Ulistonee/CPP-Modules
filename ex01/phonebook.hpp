@@ -6,7 +6,7 @@
 class Contact
 {
 public:
-	std::string			first_name;
+	std::allocator<char> first_name;
 	std::string			last_name;
 	std::string			nickname;
 	int					phone_number;
@@ -21,10 +21,10 @@ public:
 //	Phonebook();
 //	Phonebook(Phonebook const &arg);
 	std::string			cmd;
-	Contact				Azat;
-	Contact				Aizhan;
+	Contact				contact[8];
 
 	void	parser();
-	int		executor(Contact &data) const;
+	int		executor(int index);
+	void	search();
 };
 
