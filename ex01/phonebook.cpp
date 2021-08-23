@@ -3,18 +3,23 @@
 void	Phonebook::search() {
 	int		i;
 
+	//output all
+	//prompt for index
+	//output particular index
 	i = 0;
 	while (i < 8)
 	{
-		if (contact[i].first_name != nullptr)
-			continue;
+		if (contact->first_name != "0")
+		{
 
+		}
 
 	}
 }
 
-void	Contact::add(){
-	std::cout << "first name:\n";
+void	Contact::add()
+{
+	std::cout << "first_name:\n";
 	getline(std::cin, first_name);
 	std::cout << "last name:\n";
 	getline(std::cin, last_name);
@@ -30,16 +35,14 @@ void	Contact::add(){
 int		Phonebook::executor(int index) {
 
 	if (this->cmd == "EXIT")
-	{
 		exit (0);
-	}
 	else if (this->cmd == "ADD")
 	{
 		contact[index].add();
 	}
 	else if (this->cmd == "SEARCH")
 	{
-
+		search();
 	}
 	return (0);
 }
@@ -64,6 +67,15 @@ int			main()
 	int				i;
 
 	i = 0;
+//	for(int n = 0; n < 8; n++)
+//	{
+//		phonebook.contact[n].first_name = nullptr;
+//		phonebook.contact[n].last_name = nullptr;
+//		phonebook.contact[n].nickname = nullptr;
+//		phonebook.contact[n].phone_number = 0;
+//		phonebook.contact[n].darkest_secret = nullptr;
+//	}
+
 	while (true)
 	{
 		while (i < 8)
@@ -72,16 +84,10 @@ int			main()
 			phonebook.executor(i);
 			i++;
 			if (i == 8)
+			{
 				i = 0;
-//			std::cout << phonebook.contact[0].first_name << '\n';
-//			std::cout << phonebook.contact[1].first_name << '\n';
-//			std::cout << phonebook.contact[2].first_name << '\n';
-//			std::cout << phonebook.contact[3].first_name << '\n';
-//			std::cout << phonebook.contact[4].first_name << '\n';
-//			std::cout << phonebook.contact[5].first_name << '\n';
-//			std::cout << phonebook.contact[6].first_name << '\n';
-//			std::cout << phonebook.contact[7].first_name << '\n';
-		}
+			}
 
+		}
 	}
 }

@@ -6,12 +6,22 @@
 class Contact
 {
 public:
-	std::allocator<char> first_name;
-	std::string			last_name;
-	std::string			nickname;
-	int					phone_number;
+	std::string			first_name = "";
+	std::string			last_name = nullptr;
+	std::string			nickname = nullptr;
+	int					phone_number=0;
 	std::string			darkest_secret;
 
+//public:
+//	Contact()
+//	{
+//		first_name = nullptr;
+//		last_name = nullptr;
+//		nickname = nullptr;
+//		phone_number = 0;
+//		darkest_secret = nullptr;
+//
+//	}
 	void	add();
 };
 
@@ -21,7 +31,7 @@ public:
 //	Phonebook();
 //	Phonebook(Phonebook const &arg);
 	std::string			cmd;
-	Contact				contact[8];
+	Contact				contact[9];
 
 	void	parser();
 	int		executor(int index);
