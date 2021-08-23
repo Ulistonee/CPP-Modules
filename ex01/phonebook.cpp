@@ -1,24 +1,24 @@
 #include "phonebook.hpp"
 
-void	Phonebook::search() {
-	int		i;
-
-	//output all
-	//prompt for index
-	//output particular index
-	i = 0;
-	while (i < 8)
-	{
-		if (contact->first_name != "0")
-		{
-
-		}
-
-	}
+void		Contact::print()
+{
+	std::cout << first_name << std::endl;
+	std::cout << last_name << std::endl;
+	std::cout << nickname << std::endl;
+	std::cout << phone_number << std::endl;
+	std::cout << darkest_secret << std::endl;
 }
 
-void	Contact::add()
+bool		Contact::check_contact(Contact contact) {
+	if (contact.index != 0)
+		return true;
+	else
+		return false;
+}
+
+void	Contact::add(int i)
 {
+	index = i + 1;
 	std::cout << "first_name:\n";
 	getline(std::cin, first_name);
 	std::cout << "last name:\n";
@@ -38,13 +38,28 @@ int		Phonebook::executor(int index) {
 		exit (0);
 	else if (this->cmd == "ADD")
 	{
-		contact[index].add();
+		contact[index].add(index);
 	}
 	else if (this->cmd == "SEARCH")
 	{
 		search();
 	}
 	return (0);
+}
+
+void	Phonebook::search() {
+	int		i;
+
+	//output all available contacts
+	//prompt for index
+	//output particular index
+	i = 0;
+	while (i < 8)
+	{
+		if (contact[i].check_contact(contact[i]))
+			contact[i].print();
+		i++;
+	}
 }
 
 void		Phonebook::parser() {
@@ -67,15 +82,6 @@ int			main()
 	int				i;
 
 	i = 0;
-//	for(int n = 0; n < 8; n++)
-//	{
-//		phonebook.contact[n].first_name = nullptr;
-//		phonebook.contact[n].last_name = nullptr;
-//		phonebook.contact[n].nickname = nullptr;
-//		phonebook.contact[n].phone_number = 0;
-//		phonebook.contact[n].darkest_secret = nullptr;
-//	}
-
 	while (true)
 	{
 		while (i < 8)
@@ -84,10 +90,7 @@ int			main()
 			phonebook.executor(i);
 			i++;
 			if (i == 8)
-			{
 				i = 0;
-			}
-
 		}
 	}
 }
