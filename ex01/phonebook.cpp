@@ -1,12 +1,14 @@
 #include "phonebook.hpp"
 
-void		Contact::print()
-{
-	std::cout << first_name << std::endl;
-	std::cout << last_name << std::endl;
-	std::cout << nickname << std::endl;
-	std::cout << phone_number << std::endl;
-	std::cout << darkest_secret << std::endl;
+void	Contact::truncate(std::string str, bool endl=true) {
+	std::string			tmp;
+
+	tmp = str.substr(0, 9) + ".";
+	std:: cout.width(10);
+	if (endl)
+		std::cout << tmp << "|" << std::endl;
+	else
+		std::cout << tmp << "|";
 }
 
 bool		Contact::check_contact(Contact contact) {
@@ -14,6 +16,27 @@ bool		Contact::check_contact(Contact contact) {
 		return true;
 	else
 		return false;
+}
+
+void		Contact::print_contact(Contact contact)
+{
+	std:: cout.width(10);
+	std::cout << index << "|";
+	std:: cout.width(10);
+	if (first_name.length() > 10)
+		truncate(first_name, false);
+	else
+		std::cout << first_name << "|";
+	std:: cout.width(10);
+	if (last_name.length() > 10)
+		truncate(last_name);
+	else
+		std::cout << last_name << "|";
+	std:: cout.width(10);
+	if (nickname.length() > 10)
+		truncate(nickname, true);
+	else
+		std::cout << nickname << "|" << std::endl;
 }
 
 void	Contact::add(int i)
@@ -32,18 +55,20 @@ void	Contact::add(int i)
 	getline(std::cin, darkest_secret);
 }
 
-int		Phonebook::executor(int index) {
+int		Phonebook::executor() {
 
-	if (this->cmd == "EXIT")
+	if (this->cmd == "EXIT") {
 		exit (0);
+	}
 	else if (this->cmd == "ADD")
 	{
 		contact[index].add(index);
+		index++;
+		if (index == 8)
+			index = 0;
 	}
 	else if (this->cmd == "SEARCH")
-	{
 		search();
-	}
 	return (0);
 }
 
@@ -53,13 +78,23 @@ void	Phonebook::search() {
 	//output all available contacts
 	//prompt for index
 	//output particular index
+	std:: cout.width(10);
+	std::cout << "index" << "|";
+	std:: cout.width(10);
+	std::cout << "first name" << "|";
+	std:: cout.width(10);
+	std::cout << "last name" << "|";
+	std:: cout.width(10);
+	std::cout << "nickname" << "|" << std::endl;
+	std:: cout.width(10);
 	i = 0;
 	while (i < 8)
 	{
-		if (contact[i].check_contact(contact[i]))
-			contact[i].print();
+		if (contact->check_contact(contact[i]))
+			contact[i].print_contact(contact[i]);
 		i++;
 	}
+
 }
 
 void		Phonebook::parser() {
@@ -78,19 +113,13 @@ void		Phonebook::parser() {
 int			main()
 {
 	Phonebook		phonebook;
-	Contact			contact;
+//	Contact			contact;
 	int				i;
 
 	i = 0;
 	while (true)
 	{
-		while (i < 8)
-		{
-			phonebook.parser();
-			phonebook.executor(i);
-			i++;
-			if (i == 8)
-				i = 0;
-		}
+		phonebook.parser();
+		phonebook.executor();
 	}
 }

@@ -23,9 +23,10 @@ public:
 		phone_number = 0;
 		darkest_secret = "";
 	}
-	void	add(int i);
-	bool	check_contact(Contact contact);
-	void	print();
+	void			add(int i);
+	bool			check_contact(Contact contact);
+	void			print_contact(Contact contact);
+	void			truncate(std::string str, bool endl);
 };
 
 class Phonebook
@@ -33,10 +34,15 @@ class Phonebook
 private:
 	std::string			cmd;
 	Contact				contact[9];
+	int					index;
 
 public:
+	Phonebook()
+	{
+		index = 0;
+	}
 	void			parser();
-	int				executor(int index);
+	int				executor();
 	void			search();
 };
 
