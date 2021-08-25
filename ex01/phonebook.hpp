@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <cstdio>
+#include <cstdlib>
 
 class Contact
 {
@@ -16,7 +17,7 @@ private:
 public:
 	Contact()
 	{
-		index = 0;
+		index = -1;
 		first_name = "";
 		last_name = "";
 		nickname = "";
@@ -25,7 +26,9 @@ public:
 	}
 	void			add(int i);
 	bool			check_contact(Contact contact);
+	bool			check_contact(Contact contact, int response);
 	void			print_contact(Contact contact);
+	void 			print_single_contact(Contact contact);
 	void			truncate(std::string str, bool endl);
 };
 

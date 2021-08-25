@@ -1,30 +1,22 @@
 #include <iostream>
 
-struct DateStruct
-		{
-	int		day;
-	int		month;
-	int		year;
-		};
+#include <iostream>
+#include <cstdlib>
 
-class DateClass
-		{
-public:
-			int		m_day;
-			int		m_month;
-			int		m_year;
-
-			void		print(DateStruct &date)
-			{
-				std::cout << m_day << "/" << m_month << "/" << m_year << "\n";
-			}
-		};
-
-int			main()
+int main()
 {
-	DateClass today {19,8,1991};
+	const char *str1 = "42";
+	const char *str2 = "3.14159";
+	const char *str3 = "31337 with words";
+	const char *str4 = "words and 2";
 
-	today.m_day = 20;
-	today.print();
-	return (0);
+	int num1 = std::atoi(str1);
+	int num2 = std::atoi(str2);
+	int num3 = std::atoi(str3);
+	int num4 = std::atoi(str4);
+
+	std::cout << "std::atoi(\"" << str1 << "\") is " << num1 << '\n';
+	std::cout << "std::atoi(\"" << str2 << "\") is " << num2 << '\n';
+	std::cout << "std::atoi(\"" << str3 << "\") is " << num3 << '\n';
+	std::cout << "std::atoi(\"" << str4 << "\") is " << num4 << '\n';
 }
