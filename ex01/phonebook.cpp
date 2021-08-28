@@ -30,18 +30,18 @@ void		Contact::print_contact(Contact contact)
 	std:: cout.width(10);
 	std::cout << this->index << "|";
 	std:: cout.width(10);
-	if (this->first_name.length() > 10)
+	if (this->first_name.length() >= 10)
 		truncate(this->first_name, false);
 	else
 		std::cout << this->first_name << "|";
 	std:: cout.width(10);
-	if (this->last_name.length() > 10)
-		truncate(this->last_name);
+	if (this->last_name.length() >= 10)
+		truncate(this->last_name, false);
 	else
 		std::cout << this->last_name << "|";
 	std:: cout.width(10);
-	if (this->nickname.length() > 10)
-		truncate(this->nickname, true);
+	if (this->nickname.length() >= 10)
+		truncate(this->nickname);
 	else
 		std::cout << this->nickname << "|" << std::endl;
 }
