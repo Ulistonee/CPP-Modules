@@ -3,6 +3,13 @@
 #include <algorithm>
 #include <functional>
 #include <ctime>
+#include <iostream>
+
+int Account::_nbAccounts;
+int Account::_totalAmount;
+int Account::_totalNbDeposits;
+int Account::_totalNbWithdrawals;
+int indx = 0;
 
 Account::Account( int initial_deposit )
 {
@@ -18,7 +25,18 @@ Account::Account( int initial_deposit )
 	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
-static void			Account::_displayTimestamp() {
+int Account::getNbWithdrawals(void) {
+	return 0;
+}
+
+Account::~Account(void)
+{
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";amount:" << _amount <<
+	";closed" << std::endl;
+}
+
+void			Account::_displayTimestamp() {
 	time_t time_in_sec;
 	struct tm *current_date;
 	char	buffer[80];
@@ -29,7 +47,7 @@ static void			Account::_displayTimestamp() {
 	std::cout << buffer;
 }
 
-static void			Account::displayAccountsInfos(void) {
+void			Account::displayAccountsInfos(void) {
 	_displayTimestamp();
 	std::cout << " accounts:" << _nbAccounts
 			  << ";total:" << _totalAmount
@@ -44,6 +62,35 @@ void Account::displayStatus(void) const
 			  ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
+void Account::makeDeposit(int deposit)
+{
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";p_amount:" << _amount <<
+	";deposits:" << deposit;
+	_amount += deposit;
+	_nbDeposits++;
+	_totalNbDeposits++;
+	_totalAmount += deposit;
+	std::cout << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
+}
+
+bool Account::makeWithdrawal(int withdrawal)
+{
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";p_amount:" << _amount;
+	if (_amount < withdrawal)
+	{
+		std::cout << ";withdrawal:refused" << std::endl;
+		return (false);
+	}
+	_amount -= withdrawal;
+	_nbWithdrawals++;
+	_totalAmount -= withdrawal;
+	_totalNbWithdrawals++;
+	std::cout << ";withdrawal:" << withdrawal << ";amount;" << _amount <<
+	";nb_withdrawals:" << _nbWithdrawals <<  std::endl;
+	return (true);
+}
 
 
 

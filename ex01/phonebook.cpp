@@ -119,7 +119,6 @@ void	Phonebook::search() {
 		i++;
 	}
 	std::cout << "please enter contact ID:\n";
-//	std::cout << "check1\n";
 	std::cin >> response;
 	std::cin.ignore(32767, '\n');
 	if ((res = check_response(response)))
@@ -127,15 +126,8 @@ void	Phonebook::search() {
 		i = 0;
 		while (i < 8)
 		{
-//			if (res < 1 || res > 8)
-//			{
-//				std::cout << "input is incorrect\n";
-//				break ;
-//			}
 			if (contact[i].check_contact(contact[i], res))
-			{
 				contact[i].print_single_contact(contact[i]);
-			}
 			i++;
 		}
 	}
@@ -143,16 +135,21 @@ void	Phonebook::search() {
 		std::cout << "input is incorrect\n";
 }
 
-void		Phonebook::parser() {
-
+bool		Phonebook::parser() {
 	while (true)
 	{
 		std::cout << "please enter your command:\n";
-		getline(std::cin, this->cmd);
-		if (this->cmd != "ADD" && this->cmd != "SEARCH" && this->cmd != "EXIT")
-			continue;
+		if (getline(std::cin, this->cmd)) {
+			if (this->cmd != "ADD" && this->cmd != "SEARCH" && this->cmd != "EXIT")
+				continue;
+			else
+				return true;
+		}
+		if (std::cin.eof())
+			std::cout << "EOF reached" << std::endl;
 		else
-			return;
+			std::cout << "Some IO error" << std::endl;
+		return false;
 	}
 }
 
@@ -162,7 +159,8 @@ int			main()
 
 	while (true)
 	{
-		phonebook.parser();
+		if (!phonebook.parser())
+			break;
 		phonebook.executor();
 	}
 }

@@ -44,7 +44,7 @@ public:
 	{
 		index = 0;
 	}
-	void			parser();
+	bool			parser();
 	int				executor();
 	void			search();
 };

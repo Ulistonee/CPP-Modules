@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME =  accounts
 
 SRCS =		Account.cpp \
 			tests.cpp \
