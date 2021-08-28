@@ -3,7 +3,7 @@
 void	Contact::truncate(std::string str, bool endl=true) {
 	std::string			tmp;
 
-	tmp = str.substr(0, 9) + ".";
+	tmp = str.substr(0, 8) + ".";
 	std:: cout.width(10);
 	if (endl)
 		std::cout << tmp << "|" << std::endl;
@@ -66,8 +66,7 @@ void	Contact::add(int i)
 	std::cout << "nickname:\n";
 	getline(std::cin, this->nickname);
 	std::cout << "phone number:\n";
-	std::cin >> this->phone_number;
-	std::cin.ignore(32767, '\n');
+	getline(std::cin, this->phone_number);
 	std::cout << "tell me your secret...\n";
 	getline(std::cin, this->darkest_secret);
 }

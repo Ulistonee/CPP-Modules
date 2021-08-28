@@ -1,7 +1,4 @@
 #include "Account.hpp"
-#include <vector>
-#include <algorithm>
-#include <functional>
 #include <ctime>
 #include <iostream>
 
@@ -25,9 +22,17 @@ Account::Account( int initial_deposit )
 	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
-int Account::getNbWithdrawals(void) {
-	return 0;
+void			Account::displayAccountsInfos(void) {
+	_displayTimestamp();
+	std::cout << " accounts:" << _nbAccounts
+			  << ";total:" << _totalAmount
+			  << ";deposits:" << _totalNbDeposits
+			  << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
+
+//int Account::getNbWithdrawals(void) {
+//	return 0;
+//}
 
 Account::~Account(void)
 {
@@ -45,14 +50,6 @@ void			Account::_displayTimestamp() {
 	current_date = localtime(&time_in_sec);
 	strftime (buffer,80,"[%Y%m%d_%H%M%S]", current_date);
 	std::cout << buffer;
-}
-
-void			Account::displayAccountsInfos(void) {
-	_displayTimestamp();
-	std::cout << " accounts:" << _nbAccounts
-			  << ";total:" << _totalAmount
-			  << ";deposits:" << _totalNbDeposits
-			  << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 void Account::displayStatus(void) const

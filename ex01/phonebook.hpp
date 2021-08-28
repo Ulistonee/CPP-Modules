@@ -1,8 +1,11 @@
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <cstdio>
-#include <cstdlib>
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
+
+# include <iostream>
+# include <string>
+# include <cstdlib>
+# include <cstdio>
+# include <cstdlib>
 
 class Contact
 {
@@ -11,7 +14,7 @@ private:
 	std::string			first_name;
 	std::string			last_name;
 	std::string			nickname;
-	int					phone_number;
+	std::string			phone_number;
 	std::string			darkest_secret;
 
 public:
@@ -21,7 +24,7 @@ public:
 		first_name = "";
 		last_name = "";
 		nickname = "";
-		phone_number = 0;
+		phone_number = "";
 		darkest_secret = "";
 	}
 	void			add(int i);
@@ -49,3 +52,4 @@ public:
 	void			search();
 };
 
+#endif
