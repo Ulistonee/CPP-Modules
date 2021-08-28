@@ -10,22 +10,22 @@
 class Contact
 {
 private:
-	int					index;
-	std::string			first_name;
-	std::string			last_name;
-	std::string			nickname;
-	std::string			phone_number;
-	std::string			darkest_secret;
+	int					_index;
+	std::string			_first_name;
+	std::string			_last_name;
+	std::string			_nickname;
+	std::string			_phone_number;
+	std::string			_darkest_secret;
 
 public:
 	Contact()
 	{
-		index = -1;
-		first_name = "";
-		last_name = "";
-		nickname = "";
-		phone_number = "";
-		darkest_secret = "";
+		_index = -1;
+		_first_name = "";
+		_last_name = "";
+		_nickname = "";
+		_phone_number = "";
+		_darkest_secret = "";
 	}
 	void			add(int i);
 	bool			check_contact(Contact contact);
@@ -38,14 +38,14 @@ public:
 class Phonebook
 {
 private:
-	std::string			cmd;
+	std::string			_cmd;
 	Contact				contact[9];
-	int					index;
+	int					_index;
 
 public:
 	Phonebook()
 	{
-		index = 0;
+		_index = 0;
 	}
 	bool			parser();
 	int				executor();

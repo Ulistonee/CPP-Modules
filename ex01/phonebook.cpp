@@ -12,14 +12,14 @@ void	Contact::truncate(std::string str, bool endl=true) {
 }
 
 bool			Contact::check_contact(Contact contact) {
-	if (contact.index != -1)
+	if (contact._index != -1)
 		return true;
 	else
 		return false;
 }
 
 bool			Contact::check_contact(Contact contact, int response) {
-	if (contact.index == response)
+	if (contact._index == response)
 		return true;
 	else
 		return false;
@@ -28,61 +28,61 @@ bool			Contact::check_contact(Contact contact, int response) {
 void		Contact::print_contact(Contact contact)
 {
 	std:: cout.width(10);
-	std::cout << this->index << "|";
+	std::cout << this->_index << "|";
 	std:: cout.width(10);
-	if (this->first_name.length() >= 10)
-		truncate(this->first_name, false);
+	if (this->_first_name.length() >= 10)
+		truncate(this->_first_name, false);
 	else
-		std::cout << this->first_name << "|";
+		std::cout << this->_first_name << "|";
 	std:: cout.width(10);
-	if (this->last_name.length() >= 10)
-		truncate(this->last_name, false);
+	if (this->_last_name.length() >= 10)
+		truncate(this->_last_name, false);
 	else
-		std::cout << this->last_name << "|";
+		std::cout << this->_last_name << "|";
 	std:: cout.width(10);
-	if (this->nickname.length() >= 10)
-		truncate(this->nickname);
+	if (this->_nickname.length() >= 10)
+		truncate(this->_nickname);
 	else
-		std::cout << this->nickname << "|" << std::endl;
+		std::cout << this->_nickname << "|" << std::endl;
 }
 
 void		Contact::print_single_contact(Contact contact) {
 
-	std::cout << "index:\t\t\t" << index << std::endl;
-	std::cout << "first_name:\t\t" << first_name << std::endl;
-	std::cout << "last_name:\t\t" << last_name << std::endl;
-	std::cout << "nickname:\t\t" << nickname << std::endl;
-	std::cout << "phone number:\t\t" << phone_number << std::endl;
-	std::cout << "darkest secret:\t\t" << darkest_secret << std::endl;
+	std::cout << "index:\t\t\t" << _index << std::endl;
+	std::cout << "first_name:\t\t" << _first_name << std::endl;
+	std::cout << "last_name:\t\t" << _last_name << std::endl;
+	std::cout << "nickname:\t\t" << _nickname << std::endl;
+	std::cout << "phone number:\t\t" << _phone_number << std::endl;
+	std::cout << "darkest secret:\t\t" << _darkest_secret << std::endl;
 }
 
 void	Contact::add(int i)
 {
-	this->index = i + 1;
+	this->_index = i + 1;
 	std::cout << "first_name:\n";
-	getline(std::cin, this->first_name);
+	getline(std::cin, this->_first_name);
 	std::cout << "last name:\n";
-	getline(std::cin, this->last_name);
+	getline(std::cin, this->_last_name);
 	std::cout << "nickname:\n";
-	getline(std::cin, this->nickname);
+	getline(std::cin, this->_nickname);
 	std::cout << "phone number:\n";
-	getline(std::cin, this->phone_number);
+	getline(std::cin, this->_phone_number);
 	std::cout << "tell me your secret...\n";
-	getline(std::cin, this->darkest_secret);
+	getline(std::cin, this->_darkest_secret);
 }
 
 int		Phonebook::executor() {
 
-	if (this->cmd == "EXIT")
+	if (this->_cmd == "EXIT")
 		exit (0);
-	else if (this->cmd == "ADD")
+	else if (this->_cmd == "ADD")
 	{
-		contact[index].add(index);
-		index++;
-		if (index == 8)
-			index = 0;
+		contact[_index].add(_index);
+		_index++;
+		if (_index == 8)
+			_index = 0;
 	}
-	else if (this->cmd == "SEARCH")
+	else if (this->_cmd == "SEARCH")
 		search();
 	return (0);
 }
@@ -138,8 +138,8 @@ bool		Phonebook::parser() {
 	while (true)
 	{
 		std::cout << "please enter your command:\n";
-		if (getline(std::cin, this->cmd)) {
-			if (this->cmd != "ADD" && this->cmd != "SEARCH" && this->cmd != "EXIT")
+		if (getline(std::cin, this->_cmd)) {
+			if (this->_cmd != "ADD" && this->_cmd != "SEARCH" && this->_cmd != "EXIT")
 				continue;
 			else
 				return true;

@@ -6,7 +6,7 @@ int Account::_nbAccounts;
 int Account::_totalAmount;
 int Account::_totalNbDeposits;
 int Account::_totalNbWithdrawals;
-int indx = 0;
+static int indx = 0;
 
 Account::Account( int initial_deposit )
 {
