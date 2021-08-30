@@ -1,6 +1,7 @@
-NAME = phonebook
+NAME =  accounts
 
-SRCS =		phonebook.cpp \
+SRCS =		Account.cpp \
+			tests.cpp \
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -8,7 +9,7 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE = phonebook.hpp
+INCLUDE = Account.hpp
 
 RM = rm -f
 

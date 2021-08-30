@@ -25,7 +25,7 @@ bool			Contact::check_contact(Contact contact, int response) {
 		return false;
 }
 
-void		Contact::print_contact()
+void		Contact::print_contact(Contact contact)
 {
 	std:: cout.width(10);
 	std::cout << this->_index << "|";
@@ -46,7 +46,7 @@ void		Contact::print_contact()
 		std::cout << this->_nickname << "|" << std::endl;
 }
 
-void		Contact::print_single_contact() {
+void		Contact::print_single_contact(Contact contact) {
 
 	std::cout << "index:\t\t\t" << _index << std::endl;
 	std::cout << "first_name:\t\t" << _first_name << std::endl;
@@ -114,7 +114,7 @@ void	Phonebook::search() {
 	while (i < 8)
 	{
 		if (contact->check_contact(contact[i]))
-			contact[i].print_contact();
+			contact[i].print_contact(contact[i]);
 		i++;
 	}
 	std::cout << "please enter contact ID:\n";
@@ -126,7 +126,7 @@ void	Phonebook::search() {
 		while (i < 8)
 		{
 			if (contact[i].check_contact(contact[i], res))
-				contact[i].print_single_contact();
+				contact[i].print_single_contact(contact[i]);
 			i++;
 		}
 	}

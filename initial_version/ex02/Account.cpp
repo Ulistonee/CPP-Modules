@@ -30,6 +30,10 @@ void			Account::displayAccountsInfos(void) {
 			  << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
+//int Account::getNbWithdrawals(void) {
+//	return 0;
+//}
+
 Account::~Account(void)
 {
 	_displayTimestamp();

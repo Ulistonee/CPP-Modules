@@ -1,6 +1,6 @@
-NAME = phonebook
+NAME = megaphone
 
-SRCS =		phonebook.cpp \
+SRCS =		megaphone.cpp \
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -8,13 +8,11 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE = phonebook.hpp
-
 RM = rm -f
 
-all: $(NAME) $(INCLUDE)
+all: $(NAME)
 
-$(NAME): $(OBJ) $(INCLUDE)
+$(NAME): $(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -std=c++98 -pedantic -o $(NAME)
 
 %.o : %.cpp

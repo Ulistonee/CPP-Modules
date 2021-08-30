@@ -30,8 +30,8 @@ public:
 	void			add(int i);
 	bool			check_contact(Contact contact);
 	bool			check_contact(Contact contact, int response);
-	void			print_contact();
-	void 			print_single_contact();
+	void			print_contact(Contact contact);
+	void 			print_single_contact(Contact contact);
 	void			truncate(std::string str, bool endl);
 };
 
