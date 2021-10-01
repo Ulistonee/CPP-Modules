@@ -11,26 +11,21 @@ class Zombie
 {
 private:
 	std::string			name;
-	int					age;
-	int					weight;
 
-	bool				CheckBrain()
-	{
-		return true;
-	}
 public:
-	Zombie(std::string valueName, int valueAge, int valueWeight)
+	Zombie(std::string value)
 	{
-		name = valueName;
-		age = valueAge;
-		weight = valueWeight;
+		name = value;
+	}
+	~Zombie()
+	{
+		std::cout << name << " is wiped out of existence" << std::endl;
 	}
 
-	void				Alive();
-	int					Sum(int a, int b);
-	double 				Sum(double a, double b);
-	void				Print();
-
+	void				announce(void);
 };
+
+Zombie*				newZombie(std::string name);
+void				randomChump( std::string name );
 
 #endif
