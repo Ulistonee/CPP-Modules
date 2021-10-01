@@ -1,9 +1,5 @@
 #include "Zombie.hpp"
 
-int 			Zombie::Sum(int a, int b, int c) {
-	return (a + b + c);
-}
-
 int				Zombie::Sum(int a, int b) {
 	int			sum;
 
@@ -15,16 +11,24 @@ double			Zombie::Sum(double a, double b) {
 	return (a + b);
 }
 
+void 			Zombie::Print() {
+	std::cout << "Name: " << name << std::endl;
+	std::cout << "Age: " << age << std::endl;
+	std::cout << "Weight: " << weight << std::endl;
+
+}
+
+void 			Zombie::Alive() {
+	if (CheckBrain())
+		std::cout << "I'm alive!" << std::endl;
+	else
+		std::cout << "Unfortunately I have no brain so I'm dead ):";
+}
+
 int				main()
 {
-	Zombie		zombie;
-	int 		sum;
-	double 		double_sum;
+	Zombie		first_zombie("Zombie", 30, 85);
 
-	sum = zombie.Sum(1,2);
-	double_sum = zombie.Sum(1.1, 1.1);
-	std::cout << sum << std::endl;
-	std::cout << double_sum << std::endl;
-
+	first_zombie.Alive();
 	return (0);
 }

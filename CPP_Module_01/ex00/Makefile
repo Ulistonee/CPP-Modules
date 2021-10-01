@@ -1,6 +1,10 @@
-NAME = megaphone
+NAME = zombie
 
-SRCS =		megaphone.cpp \
+SRCS =		main.cpp \
+			newZombie.cpp \
+			randomChump.cpp \
+			Zombie.cpp \
+
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -8,11 +12,13 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
+INCLUDE = Zombie.hpp
+
 RM = rm -f
 
-all: $(NAME)
+all: $(NAME) $(INCLUDE)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INCLUDE)
 			$(CC) $(FLAGS) $(OBJ) -std=c++98 -pedantic -o $(NAME)
 
 %.o : %.cpp
@@ -25,10 +31,5 @@ fclean: clean
 			$(RM) -rf $(NAME)
 
 re: fclean all
-
-norm:
-			norminette $(SRCS)
-			norminette $(INCLUDE)
-			norminette
 
 .PHONY: all clean fclean re norm
