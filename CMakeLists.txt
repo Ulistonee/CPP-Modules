@@ -3,11 +3,10 @@ project(CPP_Modules)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(CPP_Module_01/ex00)
+include_directories(CPP_Module_01/ex01)
 
 add_executable(CPP_Modules
-        CPP_Module_01/ex00/main.cpp
-        CPP_Module_01/ex00/newZombie.cpp
-        CPP_Module_01/ex00/randomChump.cpp
-        CPP_Module_01/ex00/Zombie.cpp
-        CPP_Module_01/ex00/Zombie.hpp)
+        CPP_Module_01/ex01/main.cpp
+        CPP_Module_01/ex01/ZombieHorde.cpp
+        CPP_Module_01/ex01/Zombie.cpp
+        CPP_Module_01/ex01/Zombie.hpp)
