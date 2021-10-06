@@ -1,17 +1,25 @@
-# include "Weapon.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int				main()
+int						main()
 {
-	Weapon				weapon;
-	std::string 		str;
+	{
+		Weapon			club = Weapon("crude spiked club");
 
-	weapon.setType("gun");
-	str = weapon.getType();
-	weapon.setType("nuh");
-	std::cout << str << std::endl;
-	str = weapon.getType();
-	std::cout << str << std::endl;
+		HumanA			bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon			club = Weapon("crude spiked club");
 
-
+		HumanB			jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return (0);
 }
