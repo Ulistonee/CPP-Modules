@@ -5,7 +5,7 @@
 # include <cstdlib>
 # include <cstdio>
 # include <cstdlib>
-//#pragma once
+
 class Weapon
 {
 private:
