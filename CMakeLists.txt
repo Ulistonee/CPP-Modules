@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(CPP_Module_01/ex01)
 
 add_executable(CPP_Modules
-        CPP_Module_01/ex01/main.cpp
-        CPP_Module_01/ex01/ZombieHorde.cpp
-        CPP_Module_01/ex01/Zombie.cpp
-        CPP_Module_01/ex01/Zombie.hpp)
+        CPP_Module_01/ex04/main.cpp
+        CPP_Module_01/ex04/Replacer.hpp
+        )

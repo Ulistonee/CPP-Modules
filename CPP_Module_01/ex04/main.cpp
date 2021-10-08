@@ -1,27 +1,46 @@
 #include "Replacer.hpp"
 
-int						main()
+int						main(int argc, char **argv)
 {
-	using namespace std;
+	std::string 		filename;
+	std::string 		source;
+	std::string 		dst;
+	size_t				position;
+	std::string 		buf;
 
-	// Передаем флаг ios:app, чтобы сообщить fstream, что мы собираемся добавить свои данные к уже существующим данным файла.
-	// Мы не собираемся перезаписывать файл.
-	// Нам не нужно передавать флаг ios::out, поскольку ofstream по умолчанию работает в режиме ios::out
-	ofstream outf("1984.txt", ios::app);
-
-	// Если мы не можем открыть файл для записи данных,
+	position = 0;
+	if (argc != 4)
+	{
+		std::cout << "Not enough info\n";
+		return (1);
+	}
+	std::ifstream inf(argv[1]);
+	if (!argv[0] || !argv[1] || !argv[2] || !inf)
+	{
+		std::cout << "Wrong arguments\n";
+		return (1);
+	}
+	filename = argv[1];
+	source = argv[2];
+	dst = argv[3];
+	std::ofstream outf(filename.append(".replace"));
 	if (!outf)
 	{
-		// то выводим следующее сообщение об ошибке и выполняем функцию exit()
-		cerr << "Uh oh, SomeText.txt could not be opened for writing!" << endl;
-		exit(1);
+		std::cout << "Couldn`t create file\n";
+		return (1);
 	}
-
-	outf << "See line #3!" << endl;
-	outf << "See line #4!" << endl;
-
+	while(!inf.eof())
+	{
+		getline(inf, buf);
+		position = buf.find(source);
+		if (position != std::string::npos)
+		{
+			buf.erase(position, source.size());
+			buf.insert(position, dst);
+		}
+		outf << buf << std::endl;
+	}
+	inf.close();
+	outf.close();
 	return 0;
-
-	// Когда outf выйдет из области видимости, то деструктор класса ofstream автоматически закроет наш файл
-
 }

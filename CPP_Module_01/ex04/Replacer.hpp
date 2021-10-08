@@ -5,6 +5,11 @@
 # include <string>
 # include <cstdlib>
 # include <cstdio>
-# include <cstdlib>
+
+class Replacement
+{
+private:
+
+};
 
 #endif
