@@ -6,7 +6,7 @@ OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
 CC = clang++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = #-Wall -Wextra -Werror
 
 INCLUDE = Replacer.hpp
 

@@ -6,10 +6,4 @@
 # include <cstdlib>
 # include <cstdio>
 
-class Replacement
-{
-private:
-
-};
-
 #endif
