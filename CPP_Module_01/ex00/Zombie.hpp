@@ -6,22 +6,16 @@
 # include <cstdlib>
 # include <cstdio>
 # include <cstdlib>
+#include <utility>
 
 class Zombie
 {
 private:
-	std::string			name;
+	std::string			m_name;
 
 public:
-	Zombie(std::string value)
-	{
-		name = value;
-	}
-	~Zombie()
-	{
-		std::cout << name << " is wiped out of existence" << std::endl;
-	}
-
+	Zombie(std::string value);
+	~Zombie();
 	void				announce(void);
 };
 

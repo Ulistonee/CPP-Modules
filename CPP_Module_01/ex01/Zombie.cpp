@@ -6,7 +6,7 @@ Zombie::Zombie()
 	std::cout << "default constructor started" << std::endl;
 }
 
-Zombie::Zombie(std::string const & name)
+Zombie::Zombie(std::string name)
 	: m_name(name)
 {
 	std::cout << "parameter constructor started" << std::endl;

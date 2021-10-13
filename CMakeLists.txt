@@ -9,4 +9,8 @@ add_executable(CPP_Modules
         CPP_Module_01/ex06/Karen.cpp
         CPP_Module_01/ex06/Karen.hpp
         CPP_Module_01/ex06/main.cpp
+        CPP_Module_01/ex00/main.cpp
+        CPP_Module_01/ex00/newZombie.cpp
+        CPP_Module_01/ex00/Zombie.cpp
+        CPP_Module_01/ex00/Zombie.hpp
         )

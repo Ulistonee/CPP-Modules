@@ -1,8 +1,5 @@
 # include <iostream>
 # include <string>
-# include <cstdlib>
-# include <cstdio>
-# include <cstdlib>
 
 int				main()
 {
