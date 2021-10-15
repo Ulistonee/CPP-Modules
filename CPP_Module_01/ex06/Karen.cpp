@@ -23,7 +23,7 @@ void 		Karen::karenFilter(std::string level) {
 	void (Karen::*fcnPtr[])() = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 	while (i < 3 && level != levels[i])
 		i++;
-	(this->*(fcnPtr[i]))();
+//	(this->*(fcnPtr[i]))();
 	switch (i)
 	{
 		case 0:
