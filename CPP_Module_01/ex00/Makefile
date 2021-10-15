@@ -28,7 +28,7 @@ clean:
 			${RM} ${OBJ}
 
 fclean: clean
-			$(RM) -rf $(NAME)
+			$(RM) $(NAME)
 
 re: fclean all
 

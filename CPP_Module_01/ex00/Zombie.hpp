@@ -6,7 +6,7 @@
 # include <cstdlib>
 # include <cstdio>
 # include <cstdlib>
-#include <utility>
+
 
 class Zombie
 {
@@ -14,6 +14,7 @@ private:
 	std::string			m_name;
 
 public:
+	Zombie();
 	Zombie(std::string value);
 	~Zombie();
 	void				announce(void);

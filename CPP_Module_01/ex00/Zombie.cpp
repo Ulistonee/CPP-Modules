@@ -1,6 +1,8 @@
 #include "Zombie.hpp"
 
-
+Zombie::Zombie() : m_name(""){
+	std::cout << "default constructor has started\n";
+}
 
 Zombie::Zombie(std::string value) : m_name(value){}
 
