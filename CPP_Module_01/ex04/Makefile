@@ -8,13 +8,11 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE = Replacer.hpp
-
 RM = rm -f
 
-all: $(NAME) $(INCLUDE)
+all: $(NAME)
 
-$(NAME): $(OBJ) $(INCLUDE)
+$(NAME): $(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -std=c++98 -pedantic -o $(NAME)
 
 %.o : %.cpp

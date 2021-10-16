@@ -1,30 +1,23 @@
-#include "Replacer.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdio>
 
-int						main(int argc, char **argv)
+int 					replace(std::string filename, std::string s1, std::string s2)
 {
-	std::string 		filename;
-	std::string 		s1;
-	std::string 		s2;
 	size_t				position = 0;
 	std::string 		buf;
 	std::string 		tmp;
 	size_t 				start = 0;
 	int 				count = 0;
+	int 				length;
 
-	if (argc != 4)
-	{
-		std::cout << "Wrong number of arguments\n";
-		return (1);
-	}
-	std::ifstream inf(argv[1]);
+	std::ifstream inf(filename);
 	if (!inf)
 	{
 		std::cout << "Error with input file\n";
 		return (1);
 	}
-	filename = argv[1];
-	s1 = argv[2];
-	s2 = argv[3];
 	std::ofstream outf(filename.append(".replace"));
 	if (!outf)
 	{
@@ -37,7 +30,8 @@ int						main(int argc, char **argv)
 		buf.append(tmp);
 		buf.append("\n");
 	}
-	while (count < buf.size())
+	length = buf.size();
+	while (count < length)
 	{
 		position = buf.find(s1, start);
 		if (position != std::string::npos)
@@ -51,5 +45,16 @@ int						main(int argc, char **argv)
 	outf << buf;
 	inf.close();
 	outf.close();
-	return 0;
+	return (0);
+}
+
+int						main(int argc, char **argv)
+{
+	if (argc != 4)
+	{
+		std::cout << "Wrong number of arguments\n";
+		return (1);
+	}
+	replace(argv[1], argv[2], argv[3]);
+	return (0);
 }

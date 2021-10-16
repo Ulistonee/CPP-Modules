@@ -1,13 +1,11 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
-	: m_name("")
+Zombie::Zombie(): m_name("")
 {
 	std::cout << "default constructor started" << std::endl;
 }
 
-Zombie::Zombie(std::string name)
-	: m_name(name)
+Zombie::Zombie(std::string name) : m_name(name)
 {
 	std::cout << "parameter constructor started" << std::endl;
 }

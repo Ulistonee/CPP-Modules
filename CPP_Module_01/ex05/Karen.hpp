@@ -15,7 +15,9 @@ private:
 	void error( void );
 
 public:
+	Karen();
 	void complain( std::string level );
+	~Karen();
 };
 
 #endif

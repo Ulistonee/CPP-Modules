@@ -9,5 +9,6 @@ int				main()
 		newZ[i].announce();
 	}
 	delete []newZ;
+	newZ = nullptr;
 	return (0);
 }

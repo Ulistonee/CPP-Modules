@@ -25,3 +25,7 @@ void 		Karen::complain(std::string level) {
 		i++;
 	(this->*(fcnPtr[i]))();
 }
+
+Karen::Karen(){}
+
+Karen::~Karen() {}

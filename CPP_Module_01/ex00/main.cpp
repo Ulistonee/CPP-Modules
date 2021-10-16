@@ -2,12 +2,12 @@
 
 int				main()
 {
-	Zombie		zombie;
 	Zombie		*newZ;
 
 	newZ = newZombie("newZombie");
 	newZ->announce();
 	randomChump("Chump");
 	delete newZ;
+	newZ = nullptr;
 	return (0);
 }
