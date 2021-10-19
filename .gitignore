@@ -5,3 +5,5 @@ ex00/megaphone
 *.out
 .idea
 ex01/phonebook
+CPP_Module_02/ex00/*.o
+CPP_Module_02/ex00/fixed
