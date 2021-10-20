@@ -1,6 +1,7 @@
 NAME = fixed
 
 SRCS =		main.cpp \
+			Fixed.cpp \
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -8,7 +9,7 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE = #Karen.hpp
+INCLUDE = Fixed.hpp
 
 RM = rm -f
 
