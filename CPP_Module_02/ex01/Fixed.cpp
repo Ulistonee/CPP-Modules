@@ -1,4 +1,6 @@
 #include "Fixed.hpp"
+#include "../ex00/Fixed.hpp"
+
 
 Fixed::Fixed() {
 	std::cout << "default constructor called\n";
@@ -6,7 +8,7 @@ Fixed::Fixed() {
 }
 
 Fixed::Fixed(const Fixed &other) {
-	std::cout << "copy constructor called\n" << this << std::endl;
+	std::cout << "copy constructor called\n;
 	*this = other;
 }
 
@@ -21,4 +23,9 @@ int 		Fixed::getRawBits() const {
 
 void		Fixed::setRawBits(const int raw) {
 	value = raw;
+}
+
+Fixed &Fixed::operator=(const Fixed &other)
+{
+	return <#initializer#>;
 }

@@ -14,6 +14,7 @@ public:
 			~Fixed();
 			int getRawBits( void ) const;
 			void setRawBits( int const raw );
+			Fixed &	operator=(const Fixed &other);
 private:
 			int 					value;
 			static const int		bits = 8;
