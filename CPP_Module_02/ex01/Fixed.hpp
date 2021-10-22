@@ -6,18 +6,25 @@
 # include <cstdlib>
 # include <cstdio>
 # include <cmath>
+# include <cstdio>
 
 class Fixed
-		{
+{
 public:
-			Fixed();
-			Fixed(const Fixed &other);
-			~Fixed();
-			int getRawBits( void ) const;
-			void setRawBits( int const raw );
+	Fixed();
+	Fixed(const Fixed &other);
+	Fixed(const int value);
+	Fixed(const float value);
+	~Fixed();
+	int getRawBits( void ) const;
+	void setRawBits( int const raw );
+	Fixed &operator=(const Fixed &other);
+	float toFloat( void ) const;
 private:
-			int 					value;
-			static const int		bits = 8;
-		};
+	int 					m_value;
+	static const int		bits = 8;
+};
+
+std::ostream &	operator<<(std::ostream & o, Fixed const & fixed);
 
 #endif
