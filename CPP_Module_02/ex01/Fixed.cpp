@@ -17,7 +17,7 @@ Fixed::Fixed(const int value) {
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called " << this << std::endl;
-	m_value = round(value * (1 << bits));
+	m_value = roundf(value * (1 << bits));
 }
 
 Fixed::~Fixed() {
@@ -37,6 +37,10 @@ float 		Fixed::toFloat() const {
 	return (float)m_value / (1 << bits);
 }
 
+int			Fixed::toInt() const{
+	return (m_value >> bits);
+}
+
 Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Assignation operator called " << this << std::endl;
@@ -46,6 +50,5 @@ Fixed &Fixed::operator=(const Fixed &other)
 
 std::ostream &	operator<<(std::ostream & o, Fixed const & fixed) {
 	o << fixed.toFloat();
-
 	return o;
 }
