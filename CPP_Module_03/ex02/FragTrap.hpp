@@ -9,5 +9,4 @@ public:
 	~FragTrap();
 	FragTrap	&operator=(const FragTrap &other);
 	void 		highFivesGuys(void);
-
 };

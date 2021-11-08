@@ -3,7 +3,7 @@
 // methods
 
 void 		ClapTrap::attack(const std::string &target) {
-	std::cout << "ClapTrap" << m_name << "attacks" << target << ", causing" << m_attack_damage << " points of damage!\n";
+	std::cout << "ClapTrap " << m_name << " attacks " << target << ", causing " << m_attack_damage << " points of damage!\n";
 }
 
 void 		ClapTrap::takeDamage(unsigned int amount) {
@@ -11,18 +11,18 @@ void 		ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void 		ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << m_name << "is going to be repaired with" << amount << "amount of points\n";
+	std::cout << m_name << " is going to be repaired with " << amount << " amount of points\n";
 }
 
 // constructors and destructors
 
-ClapTrap::ClapTrap() : m_hitpoints(10), m_energy_points(10), m_attack_damage(0){
-	std::cout << "default ClapTrap constructor for " << m_name << " is called\n";
+ClapTrap::ClapTrap() : m_name("Default"), m_hitpoints(10), m_energy_points(10), m_attack_damage(0){
+	std::cout << "default ClapTrap constructor for " << this->m_name << " is called\n";
 }
 
 ClapTrap::ClapTrap(std::string name) : m_hitpoints(10), m_energy_points(10), m_attack_damage(0){
-	m_name = name;
-	std::cout << "parameter ClapTrap constructor for " << m_name << " is called\n";
+	this->m_name = name;
+	std::cout << "parameter ClapTrap constructor for " << this->m_name << " is called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) {

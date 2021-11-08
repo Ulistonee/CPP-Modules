@@ -2,11 +2,11 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class DiamondTrap : public virtual FragTrap, public virtual ScavTrap
 {
 public:
 	DiamondTrap();
-	DiamondTrap(std::string name);
+	DiamondTrap(std::string& name);
 	~DiamondTrap();
 	DiamondTrap& operator=(const DiamondTrap &other);
 	DiamondTrap(const DiamondTrap &other);

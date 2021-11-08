@@ -2,12 +2,14 @@
 
 int			main()
 {
-	ClapTrap		a("Boris");
-	ClapTrap		b("Alexander");
+	ClapTrap		a("Alexander");
+	ClapTrap		b("Boris");
+	ClapTrap		c;
 
-	std::cout << b.getName() << std::endl;
-	b = a;
-	std::cout << b.getName() << std::endl;
+	a.attack(b.getName());
+	c = b;
+	c.attack(a.getName());
+	a.beRepaired(10);
 
 	return (0);
 }

@@ -26,7 +26,8 @@ protected:
 	std::string 		m_name;
 	unsigned int		m_hitpoints;
 	unsigned int		m_energy_points;
-	unsigned int		m_attack_damage;
+	unsigned int 		m_attack_damage;
+
 };
 
 #endif

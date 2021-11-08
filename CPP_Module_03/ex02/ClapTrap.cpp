@@ -2,7 +2,7 @@
 
 // methods
 
-void 		ClapTrap::attack(const std::string &target) {
+void 		ClapTrap::attack(std::string const & target) {
 	std::cout << "ClapTrap " << m_name << " attacks " << target << ", causing " << m_attack_damage << " points of damage!\n";
 }
 
@@ -16,22 +16,18 @@ void 		ClapTrap::beRepaired(unsigned int amount) {
 
 // constructors and destructors
 
-ClapTrap::ClapTrap() : m_hitpoints(10), m_energy_points(10), m_attack_damage(0){
-	std::cout << "default ClapTrap constructor for " << m_name << " is called\n";
+ClapTrap::ClapTrap() : m_name("Default"), m_hitpoints(10), m_energy_points(10), m_attack_damage(0){
+	std::cout << "default ClapTrap constructor for " << this->m_name << " is called\n";
 }
 
 ClapTrap::ClapTrap(std::string name) : m_hitpoints(10), m_energy_points(10), m_attack_damage(0){
-	m_name = name;
-	std::cout << "parameter ClapTrap constructor for " << m_name << " is called\n";
+	this->m_name = name;
+	std::cout << "parameter ClapTrap constructor for " << this->m_name << " is called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) {
-	std::cout << "copy constructor for " << this->m_name << " is called\n";
+	std::cout << "copy ClapTrap constructor for " << this->m_name << " is called\n";
 	*this = other;
-}
-
-ClapTrap::~ClapTrap() {
-	std::cout << "default destructor for " << this->m_name << " is called\n";
 }
 
 // assignation operator
@@ -44,6 +40,10 @@ ClapTrap		&ClapTrap::operator=(const ClapTrap &other)
 	this->m_energy_points = other.m_energy_points;
 	this->m_attack_damage = other.m_attack_damage;
 	return *this;
+}
+
+ClapTrap::~ClapTrap() {
+	std::cout << "default ClapTrap destructor for " << this->m_name << " is called\n";
 }
 
 // getters
