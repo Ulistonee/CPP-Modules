@@ -1,8 +1,7 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
+Fixed::Fixed() : m_value(0){
 	std::cout << "default constructor called\n";
-	m_value = 0;
 }
 
 Fixed::Fixed(const Fixed &other) {
@@ -11,12 +10,12 @@ Fixed::Fixed(const Fixed &other) {
 }
 
 Fixed::Fixed(const int value) {
-	std::cout << "Int constructor called " << this << std::endl;
+	std::cout << "Int constructor called\n";
 	m_value = value << bits;
 }
 
 Fixed::Fixed(const float value) {
-	std::cout << "Float constructor called " << this << std::endl;
+	std::cout << "Float constructor called\n";
 	m_value = roundf(value * (1 << bits));
 }
 
@@ -34,7 +33,7 @@ void		Fixed::setRawBits(const int raw) {
 }
 
 float 		Fixed::toFloat() const {
-	return (float)m_value / (1 << bits);
+	return ((float)m_value / (1 << bits));
 }
 
 int			Fixed::toInt() const{
@@ -43,8 +42,8 @@ int			Fixed::toInt() const{
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Assignation operator called " << this << std::endl;
-	this->m_value = other.m_value;
+	std::cout << "Assignation operator called\n";
+	this->m_value = other.getRawBits();
 	return *this;
 }
 

@@ -18,13 +18,13 @@ int 		Fixed::getRawBits() const {
 	return (value);
 }
 
-void		Fixed::setRawBits(const int raw) {
+void		Fixed::setRawBits(int const raw) {
 	value = raw;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Assignation operator called " << this << std::endl;
-	this->value = other.value;
+	std::cout << "Assignation operator called\n";
+	this->value = other.getRawBits();
 	return *this;
 }

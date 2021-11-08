@@ -37,10 +37,9 @@ public:
 	Fixed		&max(Fixed &value1, Fixed &value2);
 	Fixed		const &min(const Fixed &value1, const Fixed &value2);
 	Fixed		const &max(const Fixed &value1, const Fixed &value2);
-
-
 	float		toFloat( void ) const;
 	int 		toInt(void) const;
+
 private:
 	int 					m_value;
 	static const int		bits = 8;
