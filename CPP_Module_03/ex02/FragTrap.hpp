@@ -6,7 +6,7 @@ public:
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(const FragTrap &other);
-	~FragTrap();
+	~FragTrap() override;
 	FragTrap	&operator=(const FragTrap &other);
 	void 		highFivesGuys(void);
 };

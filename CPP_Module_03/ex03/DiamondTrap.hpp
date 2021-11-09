@@ -7,7 +7,7 @@ class DiamondTrap : public virtual FragTrap, public virtual ScavTrap
 public:
 	DiamondTrap();
 	DiamondTrap(std::string& name);
-	~DiamondTrap();
+	~DiamondTrap() override;
 	DiamondTrap& operator=(const DiamondTrap &other);
 	DiamondTrap(const DiamondTrap &other);
 	void 			attack(std::string const &target);
