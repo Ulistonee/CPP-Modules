@@ -1,5 +1,6 @@
 #ifndef CLAP_TRAP_H
 #define CLAP_TRAP_H
+#pragma once
 # include <iostream>
 # include <fstream>
 # include <string>

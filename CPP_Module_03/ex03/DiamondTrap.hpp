@@ -1,8 +1,9 @@
-#include "ClapTrap.hpp"
+#pragma once
+//#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap : public virtual FragTrap, public virtual ScavTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 public:
 	DiamondTrap();
@@ -10,13 +11,8 @@ public:
 	~DiamondTrap() override;
 	DiamondTrap& operator=(const DiamondTrap &other);
 	DiamondTrap(const DiamondTrap &other);
-	void 			attack(std::string const &target);
-	void			whoAmI(void);
-	std::string		getName() const;
-	unsigned int 	getEnergyPoint() const;
-	unsigned int 	getHitPoint() const;
-	unsigned int 	getAttackDamage() const;
-
+	void attack(std::string const &target) override;
+	void whoAmI();
 
 private:
 	std::string		m_name;

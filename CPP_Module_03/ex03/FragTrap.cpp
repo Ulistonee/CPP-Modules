@@ -9,7 +9,7 @@ void		FragTrap::highFivesGuys() {
 // constructors and destructors
 
 FragTrap::FragTrap() {
-	std::cout << "default FragTrap constructur for " << m_name << "is called\n";
+	std::cout << "default FragTrap constructur for " << m_name << " is called\n";
 	m_hitpoints = 100;
 	m_energy_points = 100;
 	m_attack_damage = 30;
@@ -24,12 +24,12 @@ FragTrap::FragTrap(std::string name) {
 	std::cout << "parameter FragTrap constructor for " << m_name << " is called\n";
 }
 
-FragTrap::FragTrap(const FragTrap &other)  : ClapTrap(other) {
+FragTrap::FragTrap(const FragTrap &other){
 	std::cout << "copy FragTrap constructor for " << this->m_name << " is called\n";
 	*this = other;
 }
 
-FragTrap::~FragTrap() {
+FragTrap::~FragTrap(){
 	std::cout << "default destructor for FragTrap is called\n";
 }
 
