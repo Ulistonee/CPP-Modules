@@ -12,6 +12,9 @@ int			main()
 	a.beRepaired(10);
 	a.takeDamage(15);
 	a.highFivesGuys();
+	std::cout << a.getHitpoints() << std::endl;
+	std::cout << a.getAttack_damage() << std::endl;
+	std::cout << a.getEnergy_points() << std::endl;
 
 
 	return (0);

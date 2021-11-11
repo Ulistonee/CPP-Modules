@@ -1,4 +1,5 @@
-#include "ClapTrap.hpp"
+#pragma once
+# include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap
 {

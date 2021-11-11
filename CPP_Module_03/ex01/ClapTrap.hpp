@@ -19,10 +19,10 @@ public:
 	virtual void	attack(std::string const & target);
 	virtual void	takeDamage(unsigned int amount);
 	virtual void	beRepaired(unsigned int amount);
-	virtual std::string 	getName();
 	virtual unsigned int 	getHitpoints();
 	virtual unsigned int 	getEnergy_points();
 	virtual unsigned int 	getAttack_damage();
+	virtual std::string 	getName();
 	virtual void 			setName(std::string name);
 
 protected:

@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 
+
 // methods
 
 void 		ScavTrap::attack(std::string const & target) {

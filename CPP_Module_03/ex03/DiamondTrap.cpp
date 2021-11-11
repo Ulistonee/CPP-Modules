@@ -45,7 +45,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other) {
 }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << "Default DiamondTrap destructor for " << this->m_name << " is called\n";
+	std::cout << "default DiamondTrap destructor for " << this->m_name << " is called\n";
 }
 
 // assignation operator

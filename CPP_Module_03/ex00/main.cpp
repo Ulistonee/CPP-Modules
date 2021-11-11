@@ -6,7 +6,7 @@ int			main()
 	ClapTrap		b("Boris");
 
 	a.attack(b.getName());
-	b.takeDamage(10);
+	a.takeDamage(10);
 	a.beRepaired(10);
 	std::cout << a.getHitpoints() << std::endl;
 	std::cout << a.getEnergy_points() << std::endl;
