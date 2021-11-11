@@ -5,13 +5,12 @@
 
 int			main()
 {
-	FragTrap		a("Boris");
-	ScavTrap		b("Alexander");
+	FragTrap		a("Alexander");
+	ScavTrap		b("Boris");
 
+	a.attack(b.getName());
 	a.beRepaired(10);
 	a.takeDamage(15);
-	a.attack(b.getName());
-	b.guardGate();
 	a.highFivesGuys();
 
 

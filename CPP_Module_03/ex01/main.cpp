@@ -7,12 +7,15 @@ int			main()
 	ClapTrap		a("Alexander");
 	ScavTrap		b("Boris");
 
-//	a.beRepaired(10);
-//	a.takeDamage(15);
-	a.attack(b.getName());
-//	b.guardGate();
 	b.attack(a.getName());
-//	b.
+	b.beRepaired(10);
+	b.takeDamage(15);
+	b.guardGate();
+	a.beRepaired(10);
+	a.attack(b.getName());
+	std::cout << b.getHitpoints() << std::endl;
+	std::cout << b.getEnergy_points() << std::endl;
+	std::cout << b.getAttack_damage() << std::endl;
 
 	return (0);
 }

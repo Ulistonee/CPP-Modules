@@ -2,7 +2,8 @@ NAME = fragTrap
 
 SRCS =		main.cpp \
 			ClapTrap.cpp \
-			ScavTrap.cpp
+			ScavTrap.cpp \
+			FragTrap.cpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -10,7 +11,9 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE = ClapTrap.hpp
+INCLUDE =	ClapTrap.hpp \
+			FragTrap.hpp \
+			ScavTrap.hpp
 
 RM = rm -f
 

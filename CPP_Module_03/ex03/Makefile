@@ -12,7 +12,10 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror -Wshadow
 
-INCLUDE = ClapTrap.hpp
+INCLUDE =	ClapTrap.hpp \
+			ScavTrap.hpp \
+			DiamondTrap.hpp \
+			FragTrap.hpp
 
 RM = rm -f
 

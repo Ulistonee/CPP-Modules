@@ -2,17 +2,18 @@
 
 // methods
 
-void 		ClapTrap::attack(std::string const & target) {
+void 		ClapTrap::attack(const std::string &target) {
 	std::cout << "ClapTrap " << m_name << " attacks " << target << ", causing " << m_attack_damage << " points of damage!\n";
 }
 
 void 		ClapTrap::takeDamage(unsigned int amount) {
-	std::cout << m_name << " took " << amount << " amount of damage\n";
+	std::cout << "ClapTrap " << m_name << " took " << amount << " amount of damage\n";
 }
 
 void 		ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << m_name << " is going to be repaired with " << amount << " amount of points\n";
+	std::cout << "ClapTrap " << m_name << " is going to be repaired with " << amount << " amount of points\n";
 }
+
 
 // constructors and destructors
 
@@ -50,6 +51,18 @@ ClapTrap::~ClapTrap() {
 
 std::string 		ClapTrap::getName() {
 	return m_name;
+}
+
+unsigned int 		ClapTrap::getHitpoints() {
+	return m_hitpoints;
+}
+
+unsigned int 		ClapTrap::getEnergy_points() {
+	return m_energy_points;
+}
+
+unsigned int 		ClapTrap::getAttack_damage() {
+	return m_attack_damage;
 }
 
 // setters

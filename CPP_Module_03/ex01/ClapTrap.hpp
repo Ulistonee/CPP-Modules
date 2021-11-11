@@ -17,10 +17,13 @@ public:
 	virtual ~ClapTrap();
 	ClapTrap		&operator=(const ClapTrap &other);
 	virtual void	attack(std::string const & target);
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
-	std::string 	getName();
-	void 			setName(std::string name);
+	virtual void	takeDamage(unsigned int amount);
+	virtual void	beRepaired(unsigned int amount);
+	virtual std::string 	getName();
+	virtual unsigned int 	getHitpoints();
+	virtual unsigned int 	getEnergy_points();
+	virtual unsigned int 	getAttack_damage();
+	virtual void 			setName(std::string name);
 
 protected:
 	std::string 		m_name;

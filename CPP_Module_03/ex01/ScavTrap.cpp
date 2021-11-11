@@ -6,6 +6,14 @@ void 		ScavTrap::attack(std::string const & target) {
 	std::cout << "ScavTrap " << m_name << " attacks " << target << ", causing " << m_attack_damage << " points of damage!\n";
 }
 
+void 		ScavTrap::takeDamage(unsigned int amount) {
+	std::cout << "ScavTrap " << m_name << " took " << amount << " amount of damage\n";
+}
+
+void 		ScavTrap::beRepaired(unsigned int amount) {
+	std::cout << "ScavTrap " << m_name << " is going to be repaired with " << amount << " amount of points\n";
+}
+
 void 		ScavTrap::guardGate() {
 	std::cout << "ScavTrap " << m_name << " has entered in Gate keeper mode\n";
 }

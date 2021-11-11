@@ -4,12 +4,13 @@ int			main()
 {
 	ClapTrap		a("Alexander");
 	ClapTrap		b("Boris");
-	ClapTrap		c;
 
 	a.attack(b.getName());
-	c = b;
-	c.attack(a.getName());
+	b.takeDamage(10);
 	a.beRepaired(10);
+	std::cout << a.getHitpoints() << std::endl;
+	std::cout << a.getEnergy_points() << std::endl;
+	std::cout << a.getAttack_damage() << std::endl;
 
 	return (0);
 }

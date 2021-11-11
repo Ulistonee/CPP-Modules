@@ -2,6 +2,18 @@
 
 // methods
 
+void 		FragTrap::attack(std::string const & target) {
+	std::cout << "FragTrap " << m_name << " attacks " << target << ", causing " << m_attack_damage << " points of damage!\n";
+}
+
+void 		FragTrap::takeDamage(unsigned int amount) {
+	std::cout << "FragTrap " << m_name << " took " << amount << " amount of damage\n";
+}
+
+void 		FragTrap::beRepaired(unsigned int amount) {
+	std::cout << "FragTrap " << m_name << " is going to be repaired with " << amount << " amount of points\n";
+}
+
 void		FragTrap::highFivesGuys() {
 	std::cout << "High fives, heh? - " << this->m_name << " is asking\n";
 }

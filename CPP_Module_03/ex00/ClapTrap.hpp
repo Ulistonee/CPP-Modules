@@ -20,6 +20,9 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 	std::string 	getName();
+	unsigned int 	getHitpoints();
+	unsigned int 	getEnergy_points();
+	unsigned int 	getAttack_damage();
 	void 			setName(std::string name);
 
 private:

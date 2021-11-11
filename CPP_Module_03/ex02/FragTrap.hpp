@@ -6,7 +6,10 @@ public:
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(const FragTrap &other);
-	~FragTrap() override;
+	~FragTrap();
 	FragTrap	&operator=(const FragTrap &other);
+	void		attack(std::string const & target);
+	void		takeDamage(unsigned int amount);
+	void		beRepaired(unsigned int amount);
 	void 		highFivesGuys(void);
 };
