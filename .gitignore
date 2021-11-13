@@ -19,3 +19,5 @@ CPP_Module_03/ex03/*.o
 CPP_Module_03/ex03/fragTrap
 CPP_Module_04/ex00/*.o
 CPP_Module_04/ex00/animal
+CPP_Module_04/ex01/*.o
+CPP_Module_04/ex01/animal
