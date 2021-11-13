@@ -2,10 +2,8 @@ NAME = brain
 
 SRCS =		main.cpp \
 			Animal.cpp \
-			WrongAnimal.cpp \
 			Dog.cpp \
 			Cat.cpp \
-			WrongCat.cpp \
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -16,8 +14,7 @@ FLAGS = -Wall -Wextra -Werror
 INCLUDE =	Animal.hpp \
 			Dog.hpp \
 			Cat.hpp \
-			WrongCat.hpp \
-			WrongAnimal.hpp \
+
 
 
 RM = rm -f
