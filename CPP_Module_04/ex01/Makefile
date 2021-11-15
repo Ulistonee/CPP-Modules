@@ -4,6 +4,7 @@ SRCS =		main.cpp \
 			Animal.cpp \
 			Dog.cpp \
 			Cat.cpp \
+			Brain.cpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -14,8 +15,7 @@ FLAGS = -Wall -Wextra -Werror
 INCLUDE =	Animal.hpp \
 			Dog.hpp \
 			Cat.hpp \
-
-
+			Brain.cpp
 
 RM = rm -f
 

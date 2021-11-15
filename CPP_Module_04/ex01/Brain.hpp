@@ -16,6 +16,7 @@ public:
 	Brain	&operator=(const Brain &other);
 	std::string		getType() const;
 	void 			setType(std::string type);
+	std::string 	*getIdeas() const;
 protected:
 	static const int ideas_size = 100;
 	std::string 		m_ideas[ideas_size];
