@@ -27,10 +27,10 @@ std::string 		Animal::getType() const{
 	return (m_type);
 }
 
-void 				Animal::setType(std::string type){
-	this->m_type = type;
+void Animal::setType(const std::string &mType) {
+	m_type = mType;
 }
 
-void				Animal::makeSound() const{
-	std::cout << "Makes some sound\n";
+void Animal::makeSound() const {
+	std::cout << "Make some sound\n";
 }

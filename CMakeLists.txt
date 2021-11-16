@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(CPP_Modules)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 98)
 
 FILE(GLOB CPP_SRC
 		CPP_Module_04/ex01/*.cpp

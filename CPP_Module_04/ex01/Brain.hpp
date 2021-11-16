@@ -14,12 +14,14 @@ public:
 	Brain(const Brain &other);
 	virtual ~Brain();
 	Brain	&operator=(const Brain &other);
-	std::string		getType() const;
-	void 			setType(std::string type);
-	std::string 	*getIdeas() const;
+
+	std::string *getMIdeas() const;
+	void setMIdeas(std::string *mIdeas);
+
+	const std::string 	*getIdeas() const;
 protected:
 	static const int ideas_size = 100;
-	std::string 		m_ideas[ideas_size];
+	std::string 		*m_ideas;
 };
 
 #endif
