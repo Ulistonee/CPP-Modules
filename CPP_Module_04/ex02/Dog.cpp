@@ -32,7 +32,7 @@ Dog::~Dog() {
 Dog		&Dog::operator=(const Dog &other) {
 	std::cout << "Dog assignation operator for " << this->m_type << " is called\n";
 	this->m_type = other.m_type;
-	delete m_brain;
+	delete this->m_brain;
 	this->m_brain = other.m_brain;
 	return (*this);
 }
