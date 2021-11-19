@@ -1,5 +1,6 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
+#define SIZE 4
 
 class Cat : public Animal{
 public:
@@ -8,11 +9,9 @@ public:
 	~Cat();
 	Cat	&operator=(const Cat &other);
 
-	void setMBrain(Brain *mBrain);
 
 	void 	makeSound() const;
-	Brain	*getBrain() const;
 
 private:
-	Brain 			*m_brain;
+	Brain			*brain;
 };

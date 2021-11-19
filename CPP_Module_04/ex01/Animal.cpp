@@ -1,13 +1,12 @@
 #include "Animal.hpp"
 
-// destructors and constructors
+// constructors and destructors
 
 Animal::Animal() : m_type("Default"){
 	std::cout << "default Animal constructor for " << this->m_type << " is called\n";
 }
 
 Animal::Animal(const Animal &other) {
-//	m_type = "Default";
 	std::cout << "copy Animal constructor for " << this->m_type << " is called\n";
 	*this = other;
 }
@@ -22,16 +21,13 @@ Animal::~Animal() {
 	std::cout << "default Animal destructor for " << this->m_type << " is called\n";
 }
 
+
 // methods
 
 std::string 		Animal::getType() const{
 	return (m_type);
 }
 
-void Animal::setType(const std::string &type) {
-	m_type = type;
-}
-
-void Animal::makeSound() const {
-	std::cout << "Make some sound\n";
+void				Animal::makeSound() const{
+	std::cout << "Makes some sound\n";
 }

@@ -27,10 +27,6 @@ std::string 		WrongAnimal::getType() const{
 	return (m_type);
 }
 
-void 				WrongAnimal::setType(std::string type){
-	this->m_type = type;
-}
-
 void				WrongAnimal::makeSound() const{
 	std::cout << "Makes some sound\n";
 }

@@ -12,6 +12,13 @@ AMateria::~AMateria() {
 	std::cout << "AMateria destructor for " << this->type << " is called\n";
 }
 
+AMateria &AMateria::operator=(const std::string &type) {
+	std::cout << "assignation AMateria operator for " << this->type << " is called\n";
+
+}
+
+// methods
+
 std::string const &	AMateria::getType() const {
 	return (this->type);
 }

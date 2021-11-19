@@ -1,7 +1,6 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "Brain.hpp"
 
 
 int 			main()
@@ -13,20 +12,30 @@ int 			main()
 	delete j;
 	delete i;
 
-	for (int l = 0; l < 10; ++l) {
+	std::cout << "----------------------------------\n";
+	std:: cout.width(10);
+	std::cout << "filling Animal array\n";
+	std::cout << "----------------------------------\n";
+	for (int l = 0; l < SIZE; ++l) {
 		if (l % 2 == 0)
 			animals[l] = new Cat();
 		else
 			animals[l] = new Dog();
 	}
+	animals[SIZE] = nullptr;
+	std::cout << "----------------------------------\n";
+	std:: cout.width(10);
+	std::cout << "deleting Animal array\n";
+	std::cout << "----------------------------------\n";
 	for (int k = 0; k < 10; ++k)
 	{
-		delete animals[k];
+		if (animals[k] )
+			delete animals[k];
 	}
+	std::cout << "----------------------------------\n";
+	std:: cout.width(10);
 	Dog basic;
 	{
 		Dog		tmp = basic;
 	}
-
-
 }

@@ -24,6 +24,8 @@ Ice			&Ice::operator=(const Ice &other) {
 	return (*this);
 }
 
+// methods
+
 AMateria*		Ice::clone() const {
 	AMateria* clone = new Ice(type);
 	return clone;

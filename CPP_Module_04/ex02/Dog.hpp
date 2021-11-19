@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
-
+#define SIZE 4
 
 class Dog : public Animal{
 public:
@@ -9,10 +9,8 @@ public:
 	~Dog();
 	Dog	&operator=(const Dog &other);
 
-
-	void 			makeSound() const;
-	const Brain		*getBrain() const;
+	void 	makeSound() const;
 
 private:
-	Brain 			*m_brain;
+	Brain			*brain;
 };

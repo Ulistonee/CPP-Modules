@@ -1,4 +1,4 @@
-NAME = brain
+NAME = animal
 
 SRCS =		main.cpp \
 			Animal.cpp \

@@ -7,6 +7,7 @@
 # include <cstdio>
 # include <cmath>
 # include <cstdio>
+# include <ctime>
 
 class Brain{
 public:
@@ -16,12 +17,12 @@ public:
 	Brain	&operator=(const Brain &other);
 
 
-
-	const std::string 	*getIdeas() const;
-	std::string 		getRandomIdea();
 	void 				printIdeas() const;
+
+
 protected:
-	static const int ideas_size = 100;
+	std::string 		getRandomIdea();
+	static const int 	ideas_size = 100;
 	std::string 		m_ideas[ideas_size];
 };
 

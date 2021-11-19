@@ -2,26 +2,25 @@
 
 // methods
 
-std::string Brain::getRandomIdea()
-{
-	std::string		oneIdea;
-	static int	ra = 1;
-	char		symb[] = "qwertyuiopasdfghjklzxcvbnm1234567890";
+std::string 		Brain::getRandomIdea() {
+	std::string				oneIdea;
+	std::string 			ideas[] = {"Evrika!", "I have an idea!", "What if I create a robot?!", "Let' make some pasta!"};
+	static unsigned int		i = 1;
+	unsigned int 			k;
 
-	std::srand(ra++);
-	for (int i = 0; i < 11; i++)
-		oneIdea += symb[rand() % (sizeof(symb) - 1)];
-	return oneIdea;
+	std::srand(i++);
+	k = std::rand() % 4;
+	return (ideas[k]);
 }
 
 void Brain::printIdeas() const
 {
 	for (int i = 0; i < ideas_size; i++)
+	{
 		std::cout << m_ideas[i] << std::endl;
-}
-
-const std::string *Brain::getIdeas() const {
-	return m_ideas;
+		if ((i + 1) % 3 == 0)
+			std::cout << "\n";
+	}
 }
 
 // constructors and destructors
