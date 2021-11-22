@@ -16,7 +16,7 @@ int 			main()
 	std:: cout.width(10);
 	std::cout << "filling Animal array\n";
 	std::cout << "----------------------------------\n";
-	for (int l = 0; l < SIZE; ++l) {
+	for (int l = 0; l < 4; ++l) {
 		if (l % 2 == 0)
 			animals[l] = new Cat();
 		else

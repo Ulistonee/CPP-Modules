@@ -8,22 +8,26 @@
 # include <cmath>
 # include <cstdio>
 # include "ICharacter.hpp"
+
+class ICharacter;
+
 class AMateria
 {
-protected:
-	std::string 		type;
 public:
 	AMateria();
-	AMateria(const AMateria &other);
 	AMateria(std::string const & type);
 	virtual ~AMateria();
-	AMateria 	&operator=(const AMateria &other);
-
-
 	std::string const & getType() const;
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
-};
 
+
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& type);
+protected:
+
+	std::string 		type;
+private:
+	AMateria 	&operator=(const AMateria &o);
+	AMateria(const AMateria &);
+};
 
 #endif

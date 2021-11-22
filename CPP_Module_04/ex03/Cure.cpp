@@ -3,20 +3,19 @@
 Cure::Cure()
 {
 	this->type = "cure";
-	std::cout << "default Cure constructor for " << this->type << " is called\n";
+	std::cout << "default Cure constructor for " << this->type << this << " is called\n";
 }
 
-Cure::Cure(const Cure &other)  : AMateria(other) {
-	std::cout << "parameter Cure constructor for " << this->type << " is called\n";
-	this->type = other.type;
+Cure::Cure(const Cure &){
+	std::cout << "copy Cure constructor for " << this->type << " is called\n";
 }
 
 Cure::~Cure() {
 	std::cout << "Cure destructor for " << this->type << " is called\n";
 }
 
-Cure			&Cure::operator=(const Cure &other) {
-	this->type = other.type;
+Cure			&Cure::operator=(const Cure &) {
+	std::cout << "Cure assignation operator for " << this->type << " is called\n";
 	return (*this);
 }
 
@@ -28,7 +27,7 @@ AMateria*		Cure::clone() const {
 }
 
 void 			Cure::use(ICharacter &target) {
-	std::cout << this->type << "* shoots an Cure bolt at " << target.getName() << "*" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
 
