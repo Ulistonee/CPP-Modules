@@ -2,17 +2,13 @@
 
 Cure::Cure()
 {
-	this->type = "Cure";
+	this->type = "cure";
 	std::cout << "default Cure constructor for " << this->type << " is called\n";
 }
 
-Cure::Cure(const std::string &type) {
+Cure::Cure(const Cure &other)  : AMateria(other) {
 	std::cout << "parameter Cure constructor for " << this->type << " is called\n";
-	this->type = type;
-}
-
-Cure::Cure(const Cure &other){
-	*this = other;
+	this->type = other.type;
 }
 
 Cure::~Cure() {
@@ -27,12 +23,12 @@ Cure			&Cure::operator=(const Cure &other) {
 // methods
 
 AMateria*		Cure::clone() const {
-	AMateria* clone = new Cure(type);
+	AMateria* clone = new Cure();
 	return clone;
 }
 
 void 			Cure::use(ICharacter &target) {
-	std::cout << this->type << " heals " << target.getName() << "`s " << std::endl;
+	std::cout << this->type << "* shoots an Cure bolt at " << target.getName() << "*" << std::endl;
 }
 
 

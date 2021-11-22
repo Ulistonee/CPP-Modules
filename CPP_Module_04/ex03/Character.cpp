@@ -3,15 +3,22 @@
 Character::Character()
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = NULL;
+		this->inventory[i] = nullptr;
 	name = "Default";
 }
 
-Character::Character(string name)
+Character::Character(std::string name)
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = NULL;
+		this->inventory[i] = nullptr;
 	this->name = name;
+}
+
+Character::Character(const Character& src)
+{
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = nullptr;
+	*this = src;
 }
 
 Character::~Character()
@@ -19,6 +26,21 @@ Character::~Character()
 	for (int i = 0; i < 4; i++)
 		if (this->inventory[i])
 			delete this->inventory[i];
+}
+
+Character& Character::operator=(const Character& src)
+{
+	if (this == &src)
+		return *this;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i])
+			delete this->inventory[i];
+	}
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = src.this->inventory[i]->clone();
+	name = src.getName();
+	return *this;
 }
 
 std::string const & Character::getName() const
@@ -39,7 +61,7 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
-		this->inventory[idx] = NULL;
+		this->inventory[idx] = nullptr;
 }
 
 void Character::use(int idx, ICharacter &target)
@@ -48,24 +70,5 @@ void Character::use(int idx, ICharacter &target)
 		this->inventory[idx]->use(target);
 }
 
-Character& Character::operator=(const Character &src)
-{
-	if (this == &src)
-		return *this;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->inventory[i])
-			delete this->inventory[i];
-	}
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = src.this->inventory[i]->clone();
-	name = src.getName();
-	return *this;
-}
 
-Character::Character(const Character& src)
-{
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = NULL;
-	*this = src;
-}
+

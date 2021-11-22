@@ -4,9 +4,8 @@ class Cure : public AMateria
 {
 public:
 	Cure();
-	Cure(const std::string &type);
-	~Cure();
 	Cure(const Cure &other);
+	~Cure();
 	Cure& operator=(const Cure &other);
 
 

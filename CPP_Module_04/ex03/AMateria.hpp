@@ -14,9 +14,10 @@ protected:
 	std::string 		type;
 public:
 	AMateria();
+	AMateria(const AMateria &other);
 	AMateria(std::string const & type);
 	virtual ~AMateria();
-	AMateria 		&operator=(std::string const & type);
+	AMateria 	&operator=(const AMateria &other);
 
 
 	std::string const & getType() const;

@@ -6,13 +6,9 @@ Ice::Ice()
 	std::cout << "default Ice constructor for " << this->type << " is called\n";
 }
 
-Ice::Ice(const std::string &type) {
+Ice::Ice(const Ice &other)  : AMateria(other) {
 	std::cout << "parameter Ice constructor for " << this->type << " is called\n";
-	this->type = type;
-}
-
-Ice::Ice(const Ice &other){
-	*this = other;
+	this->type = other.type;
 }
 
 Ice::~Ice() {
@@ -27,12 +23,12 @@ Ice			&Ice::operator=(const Ice &other) {
 // methods
 
 AMateria*		Ice::clone() const {
-	AMateria* clone = new Ice(type);
+	AMateria* clone = new Ice();
 	return clone;
 }
 
 void 			Ice::use(ICharacter &target) {
-	std::cout << this->type << " shoots an ice bolt at " << target.getName() << std::endl;
+	std::cout << this->type << "* shoots an ice bolt at " << target.getName() << "*" << std::endl;
 }
 
 
