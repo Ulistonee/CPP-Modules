@@ -71,7 +71,10 @@ AMateria* MateriaSource::createMateria(const std::string &type) {
 			flag += 1;
 	}
 	if (flag == 4)
+	{
+		std::cout << "inventory is full\n";
 		return nullptr;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory[i] && this->inventory[i]->getType() == type)

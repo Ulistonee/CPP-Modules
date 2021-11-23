@@ -63,14 +63,18 @@ int main()
 	mSource->learnMateria(tmp3);
 	mSource->learnMateria(NULL); // this must not segfault
 	mSource->learnMateria(tmp2);
-	mSource->learnMateria(tmp3);
-	mSource->learnMateria(tmp3);
+//	mSource->learnMateria(tmp3);
+//	mSource->learnMateria(tmp3);
 
 
 
 	ICharacter* alice = new Character("alice");
 	ICharacter* mallory = new Character("mallory");
 
+
+	std::cout << "----------------------------------\n";
+	std::cout << "trying to equip more materia than inventory size can contain" << std::endl;
+	std::cout << "----------------------------------\n";
 
 	alice->equip(tmp2);
 	alice->equip(tmp3);
