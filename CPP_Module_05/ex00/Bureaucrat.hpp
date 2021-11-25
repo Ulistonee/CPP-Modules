@@ -7,13 +7,15 @@
 # include <cstdio>
 # include <cmath>
 # include <cstdio>
-# include "GradeTooHighException.hpp"
-# include "GradeTooLowException.hpp"
+
 
 class Bureaucrat
 {
 public:
-	Bureaucrat(int value);
+	Bureaucrat();
+	Bureaucrat(const std::string& m_name, int value);
+	Bureaucrat(const Bureaucrat & other);
+	Bureaucrat &operator=(const Bureaucrat & other);
 
 
 	std::string 		getName() const;
@@ -22,8 +24,14 @@ public:
 	void 				decrementGrade();
 
 private:
-	GradeTooHighException	gradeTooHighException;
-	GradeTooLowException	gradeTooLowException;
+	class	GradeTooHighException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	class GradeTooLowException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 	const std::string 		name;
 	int						grade;
 };
