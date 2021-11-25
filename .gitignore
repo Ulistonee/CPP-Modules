@@ -27,3 +27,5 @@ CPP_Module_04/ex03/*.o
 CPP_Module_04/ex03/animal
 CPP_Module_05/ex00/*.o
 CPP_Module_05/ex00/bureaucrat
+CPP_Module_05/ex01/bureaucrat
+CPP_Module_05/ex01/*.o
