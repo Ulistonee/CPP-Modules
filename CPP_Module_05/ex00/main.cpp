@@ -2,15 +2,9 @@
 
 int 		main()
 {
-	Bureaucrat		innokentiy(6);
+	Bureaucrat		innokentiy(-5);
 
-	try
-	{
-		innokentiy.incrementGrade();
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+
+	innokentiy.incrementGrade();
 	std::cout << innokentiy;
 }

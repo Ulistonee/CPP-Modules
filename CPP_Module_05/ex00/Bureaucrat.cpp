@@ -1,10 +1,10 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(int value) : name("bureaucrat"){
-	if (value < 1 || value > 150)
-	{
-		throw std::exception();
-	}
+	if (value < 1)
+		throw Bureaucrat::gradeTooHighException;
+	else if (value > 150)
+		throw Bureaucrat::gradeTooLowException;
 	this->grade = value;
 }
 
@@ -16,26 +16,10 @@ int Bureaucrat::getGrade() const{
 	return (this->grade);
 }
 
-void Bureaucrat::GradeTooHighException() {
-	this->grade--;
-	if (this->grade < 0)
-	{
-		throw std::exception();
-	}
-}
-
-void Bureaucrat::GradeTooLowException() {
-	this->grade++;
-	if (this->grade > 150)
-	{
-		throw std::exception();
-	}
-}
-
 void Bureaucrat::incrementGrade(){
 	try
 	{
-		GradeTooHighException();
+		Bureaucrat(this->grade--);
 	}
 	catch (std::exception & e)
 	{
@@ -46,7 +30,7 @@ void Bureaucrat::incrementGrade(){
 void Bureaucrat::decrementGrade(){
 	try
 	{
-		GradeTooLowException();
+		Bureaucrat(this->grade++);
 	}
 	catch (std::exception & e)
 	{
@@ -55,7 +39,7 @@ void Bureaucrat::decrementGrade(){
 }
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const & bureaucrat) {
-	o << bureaucrat.getName() << std::endl;
-	o << bureaucrat.getGrade() << std::endl;
+	o << "bureaucrat`s name is " << bureaucrat.getName() << std::endl;
+	o << "bureaucrat`s grade is " << bureaucrat.getGrade() << std::endl;
 	return o;
 }
