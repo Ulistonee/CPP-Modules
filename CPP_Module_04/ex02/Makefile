@@ -15,7 +15,7 @@ FLAGS = -Wall -Wextra -Werror
 INCLUDE =	Animal.hpp \
 			Dog.hpp \
 			Cat.hpp \
-			Brain.cpp
+			Brain.hpp
 
 RM = rm -f
 

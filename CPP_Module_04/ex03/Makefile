@@ -1,10 +1,11 @@
-NAME = animal
+NAME = materia
 
 SRCS =		main.cpp \
-			Animal.cpp \
-			Dog.cpp \
-			Cat.cpp \
-			Brain.cpp
+			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -12,10 +13,13 @@ CC = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE =	Animal.hpp \
-			Dog.hpp \
-			Cat.hpp \
-			Brain.cpp
+INCLUDE =	AMateria.hpp \
+			Character.hpp \
+			Cure.hpp \
+			Ice.hpp \
+			ICharacter.hpp \
+			IMateriaSource.hpp \
+			MateriaSource.hpp
 
 RM = rm -f
 

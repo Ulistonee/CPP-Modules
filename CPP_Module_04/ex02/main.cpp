@@ -38,4 +38,6 @@ int 			main()
 	{
 		Dog		tmp = basic;
 	}
+
+//	Animal test;
 }
