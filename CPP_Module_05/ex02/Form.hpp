@@ -19,16 +19,16 @@ public:
 	Form(const std::string& name, bool status,
 		 unsigned int gradeForSign, unsigned int gradeForExec);
 	Form(const Form & other);
-	~Form();
+	virtual ~Form();
 	Form &operator=(const Form & other);
 
-	bool 			getSign() const;
-	unsigned int 	getGradeToSign() const;
-	unsigned int 	getGradeToExecute() const;
-	std::string 	getName() const;
-	void 			beSigned(const Bureaucrat& bureaucrat);
+	virtual bool 			getSign() const;
+	virtual unsigned int 	getGradeToSign() const;
+	virtual unsigned int 	getGradeToExecute() const;
+	virtual std::string 	getName() const;
+	virtual void 			beSigned(const Bureaucrat& bureaucrat);
 
-private:
+protected:
 	class	GradeTooHighException : public std::exception
 	{
 		virtual const char* what() const throw();
