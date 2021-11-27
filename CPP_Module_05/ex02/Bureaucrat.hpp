@@ -21,11 +21,12 @@ public:
 	Bureaucrat &operator=(const Bureaucrat & other);
 
 
-	std::string 		getName() const;
-	unsigned int		getGrade() const;
-	void 				incrementGrade();
-	void 				decrementGrade();
-	void 				signForm(Form form);
+	std::string 	getName() const;
+	unsigned int	getGrade() const;
+	void 			incrementGrade();
+	void 			decrementGrade();
+	void 			signForm(Form *form);
+	void 			executeForm(Form const & form) ;
 
 private:
 	class	GradeTooHighException : public std::exception

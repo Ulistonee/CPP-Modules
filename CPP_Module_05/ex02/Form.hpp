@@ -27,6 +27,19 @@ public:
 	virtual unsigned int 	getGradeToExecute() const;
 	virtual std::string 	getName() const;
 	virtual void 			beSigned(const Bureaucrat& bureaucrat);
+	virtual void 			execute(Bureaucrat const & executor) const = 0;
+//	class GradeTooHighException : public std::exception
+//			{
+//		virtual const char* what() const throw();
+//			};
+//	class GradeTooLowException : public std::exception
+//			{
+//		virtual const char* what() const throw();
+//			};
+//	class notSigned : public std::exception
+//			{
+//		virtual const char* what() const throw();
+//			};
 
 protected:
 	class	GradeTooHighException : public std::exception
@@ -37,11 +50,16 @@ protected:
 	{
 		virtual const char* what() const throw();
 	};
+	class notSigned : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 
 	const std::string 	m_name;
 	bool 				sign;
 	const unsigned int	gradeToSign;
 	const unsigned int	gradeToExecute;
+	std::string 		target;
 };
 
 std::ostream &	operator<<(std::ostream & o, Form const & form);

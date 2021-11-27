@@ -1,41 +1,19 @@
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int 		main()
 {
 	try
 	{
-		Bureaucrat		innokentiy("bureaucrat", 152);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what();
-	}
-	try
-	{
-		Bureaucrat		innokentiy("bureaucrat", 1);
-//		innokentiy.incrementGrade();
-		std::cout << innokentiy;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what();
-	}
-	try
-	{
-		Form			form("form", false, 1, 0);
-		std::cout << form;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what();
-	}
-	try
-	{
-		Bureaucrat		vasya("vasya", 10);
+		Form		*form;
+		Bureaucrat					bureaucrat("bureaucrat", 1);
 
-		Form			form2("form", false, 1, 2);
-		std::cout << form2;
-		form2.beSigned(vasya);
+		form = new PresidentialPardonForm();
+		bureaucrat.signForm(form);
+		bureaucrat.executeForm(*form);
+		delete form;
 	}
 	catch (std::exception & e)
 	{

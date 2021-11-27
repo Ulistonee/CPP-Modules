@@ -4,11 +4,9 @@ class ShrubberyCreationForm : public Form
 {
 public:
 	ShrubberyCreationForm();
+	ShrubberyCreationForm(std::string &m_target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	~ShrubberyCreationForm();
 	ShrubberyCreationForm	 &operator=(const ShrubberyCreationForm &other);
-	void 					execute(std::string target_name);
-
-private:
-	std::string 		target;
+	virtual void 			execute(Bureaucrat const & executor) const;
 };

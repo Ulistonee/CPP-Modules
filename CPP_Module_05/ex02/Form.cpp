@@ -1,18 +1,18 @@
 #include "Form.hpp"
 
-Form::Form() : m_name("form"), sign(false), gradeToSign(1), gradeToExecute(1)
+Form::Form() : m_name("form"), sign(false), gradeToSign(1), gradeToExecute(1), target("target")
 {
-}
+} // do I need to initialize target?
 
 Form::Form(const std::string& name, bool status, unsigned int gradeForSign,
-		   unsigned int gradeForExec) : m_name(name), sign(status), gradeToSign(gradeForSign), gradeToExecute(gradeForExec){
+		   unsigned int gradeForExec) : m_name(name), sign(status), gradeToSign(gradeForSign), gradeToExecute(gradeForExec), target("target"){
 	if (gradeForSign < 1 || gradeForExec < 1)
 		throw Form::GradeTooLowException();
 	if (gradeForSign > 150 || gradeForExec > 150)
 		throw Form::GradeTooHighException();
 }
 
-Form::Form(const Form & other) : m_name(other.m_name), sign(other.sign), gradeToSign(0), gradeToExecute(0)
+Form::Form(const Form & other) : m_name(other.m_name), sign(other.sign), gradeToSign(0), gradeToExecute(0), target(other.target)
 {
 	*this = other;
 }
@@ -30,6 +30,11 @@ const char *Form::GradeTooHighException::what() const throw() {
 
 const char *Form::GradeTooLowException::what() const throw() {
 	return ("Grade is too low\n");
+}
+
+
+const char *Form::notSigned::what() const throw() {
+	return ("the form has not been signed yet\n");
 }
 
 std::string		Form::getName() const{
@@ -68,3 +73,4 @@ std::ostream &	operator<<(std::ostream & o, Form const & form) {
 	o << "form`s gradeToExecute is " << form.getGradeToExecute() << std::endl;
 	return o;
 }
+

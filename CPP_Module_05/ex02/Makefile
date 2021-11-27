@@ -2,7 +2,10 @@ NAME = bureaucrat
 
 SRCS =		main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			Form.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -11,7 +14,10 @@ CC = clang++
 FLAGS = -Wall -Wextra -Werror
 
 INCLUDE =	Bureaucrat.hpp \
-			Form.hpp
+			Form.hpp \
+			PresidentialPardonForm.hpp \
+            RobotomyRequestForm.hpp \
+            ShrubberyCreationForm.hpp
 
 RM = rm -f
 

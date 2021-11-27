@@ -16,8 +16,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 
 Bureaucrat::~Bureaucrat() {}
 
-void Bureaucrat::signForm(Form form) {
-	form.beSigned(*this);
+void Bureaucrat::signForm(Form *form) {
+	form->beSigned(*this);
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
@@ -43,6 +43,15 @@ void Bureaucrat::decrementGrade(){
 	if (this->grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->grade++;
+}
+
+void Bureaucrat::executeForm(const Form &form) {
+	if (this->grade <= form.getGradeToExecute())
+		form.execute(*this);
+	else
+	{
+		throw Bureaucrat::GradeTooLowException();
+	}
 }
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const & bureaucrat) {
