@@ -1,56 +1,61 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("form", false, 145,137){
-	this->target = "default";
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyForm", 145,137){
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &m_target) : Form("form", false, 25,5){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string &m_target) : Form("ShrubberyForm", 145,137){
 	this->target = m_target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : Form(other.getName(), other.sign, other.gradeToSign,other.gradeToExecute) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other){
+	this->sign = other.sign;
 	this->target = other.target;
 }
 
 ShrubberyCreationForm		&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other){
+	this->sign = other.sign;
 	this->target = other.target;
 	return (*this);
-} // do  I need to initialize other fields?
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void						ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	if (this->sign && executor.getGrade() <= this->gradeToExecute)
 	{
-	std::ofstream outf(target + "_shrubbery");
-	if (!outf)
-	{
-		std::cout << "Error with output file\n";
+		std::ofstream outf(target + "_shrubbery");
+		if (!outf)
+		{
+			std::cout << "Error with output file\n";
+		}
+		std::string 	tree;
+		tree = ".\n"
+			   "◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯\n"
+			   "◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯\n"
+			   "┈◯◯╰┻◯◯╋◯┻◯◯╯◯╯┈\n"
+			   "┈┈╰━┓╰━┋┗━╯┣━╯┈┈\n"
+			   "╱╲┈┈╰━┓┆┏┳━╯┈┈╱╲\n"
+			   "┈┈╱╲┈┈┃┋┋┃┈┈┈╱┈┈\n"
+			   "━━━━━━┻┻┻┻━━━━━━\n"
+			   "\n";
+		outf << tree;
+		outf.close();
 	}
-	std::string 	tree;
-	tree = ".\n"
-		   "◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯\n"
-		   "◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯\n"
-		   "┈◯◯╰┻◯◯╋◯┻◯◯╯◯╯┈\n"
-		   "┈┈╰━┓╰━┋┗━╯┣━╯┈┈\n"
-		   "╱╲┈┈╰━┓┆┏┳━╯┈┈╱╲\n"
-		   "┈┈╱╲┈┈┃┋┋┃┈┈┈╱┈┈\n"
-		   "━━━━━━┻┻┻┻━━━━━━\n"
-		   "\n";
-	outf << tree;
-	outf.close();
+	else if (!this->sign)
+	{
+		std::cout << "the form has not been signed yet\n";
 	}
 	else
 	{
-		if (!this->sign)
-		{
-			throw ShrubberyCreationForm::notSigned();
-		}
-		else
-		{
-			throw ShrubberyCreationForm::GradeTooLowException();
-		}
+		throw ShrubberyCreationForm::GradeTooLowException();
 	}
+}
 
+std::ostream &	operator<<(std::ostream & o, ShrubberyCreationForm const & form) {
+	o << "form`s name is " << form.getName() << std::endl;
+	o << "form`s status is " << form.getSign() << std::endl;
+	o << "form`s gradeToSign is " <<  form.getGradeToSign() << std::endl;
+	o << "form`s gradeToExecute is " << form.getGradeToExecute() << std::endl;
+	return o;
 }
 

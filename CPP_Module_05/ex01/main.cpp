@@ -1,29 +1,14 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int 		main()
 {
 	try
 	{
-		Bureaucrat		innokentiy("bureaucrat", 152);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what();
-	}
-	try
-	{
-		Bureaucrat		innokentiy("bureaucrat", 1);
-//		innokentiy.incrementGrade();
-		std::cout << innokentiy;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what();
-	}
-	try
-	{
-		Form			form("form", false, 1, 0);
+		Bureaucrat		vasya("vasya", 1);
+		Form			form("form", 10, 10);
 		std::cout << form;
+		vasya.signForm(form);
 	}
 	catch (std::exception & e)
 	{
@@ -33,9 +18,16 @@ int 		main()
 	{
 		Bureaucrat		vasya("vasya", 10);
 
-		Form			form2("form", false, 1, 2);
-		std::cout << form2;
+		Form			form2("form", 1, 2);
 		form2.beSigned(vasya);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what();
+	}
+	try
+	{
+		Form			form2("form", 0, 2);
 	}
 	catch (std::exception & e)
 	{

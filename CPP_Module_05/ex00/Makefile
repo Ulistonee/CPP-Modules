@@ -5,7 +5,7 @@ SRCS =		main.cpp \
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
-CC = clang++
+CC = c++
 
 FLAGS = -Wall -Wextra -Werror
 

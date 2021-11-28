@@ -5,11 +5,12 @@ SRCS =		main.cpp \
 			Form.cpp \
 			PresidentialPardonForm.cpp \
 			RobotomyRequestForm.cpp \
-			ShrubberyCreationForm.cpp
+			ShrubberyCreationForm.cpp \
+			Intern.cpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
-CC = clang++
+CC = c++
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -17,7 +18,8 @@ INCLUDE =	Bureaucrat.hpp \
 			Form.hpp \
 			PresidentialPardonForm.hpp \
             RobotomyRequestForm.hpp \
-            ShrubberyCreationForm.hpp
+            ShrubberyCreationForm.hpp \
+            Intern.hpp
 
 RM = rm -f
 

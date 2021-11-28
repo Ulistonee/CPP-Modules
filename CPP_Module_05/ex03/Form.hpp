@@ -16,8 +16,7 @@ class Form
 public:
 
 	Form();
-	Form(const std::string& name, bool status,
-		 unsigned int gradeForSign, unsigned int gradeForExec);
+	Form(const std::string& name, unsigned int gradeForSign, unsigned int gradeForExec);
 	Form(const Form & other);
 	virtual ~Form();
 	Form &operator=(const Form & other);
@@ -28,18 +27,7 @@ public:
 	virtual std::string 	getName() const;
 	virtual void 			beSigned(const Bureaucrat& bureaucrat);
 	virtual void 			execute(Bureaucrat const & executor) const = 0;
-//	class GradeTooHighException : public std::exception
-//			{
-//		virtual const char* what() const throw();
-//			};
-//	class GradeTooLowException : public std::exception
-//			{
-//		virtual const char* what() const throw();
-//			};
-//	class notSigned : public std::exception
-//			{
-//		virtual const char* what() const throw();
-//			};
+
 
 protected:
 	class	GradeTooHighException : public std::exception
@@ -50,7 +38,7 @@ protected:
 	{
 		virtual const char* what() const throw();
 	};
-	class notSigned : public std::exception
+	class FormSignedException : public std::exception
 	{
 		virtual const char* what() const throw();
 	};

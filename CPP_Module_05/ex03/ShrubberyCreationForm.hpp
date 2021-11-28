@@ -1,12 +1,17 @@
-#include "Form.hpp"
+#include "Form.hpp" // protect the header
 
 class ShrubberyCreationForm : public Form
 {
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string &m_target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	~ShrubberyCreationForm();
+
+	virtual void 			execute(Bureaucrat const & executor) const; // do I need to leave virtual?
+
+private:
+	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	ShrubberyCreationForm	 &operator=(const ShrubberyCreationForm &other);
-	virtual void 			execute(Bureaucrat const & executor) const;
 };
+
+std::ostream &	operator<<(std::ostream & o, ShrubberyCreationForm const & form);

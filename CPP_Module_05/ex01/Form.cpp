@@ -4,12 +4,18 @@ Form::Form() : m_name("form"), sign(false), gradeToSign(1), gradeToExecute(1)
 {
 }
 
-Form::Form(const std::string& name, bool status, unsigned int gradeForSign,
-		   unsigned int gradeForExec) : m_name(name), sign(status), gradeToSign(gradeForSign), gradeToExecute(gradeForExec){
+Form::Form(const std::string& name, unsigned int gradeForSign,
+		   unsigned int gradeForExec) : m_name(name), sign(false), gradeToSign(gradeForSign), gradeToExecute(gradeForExec){
 	if (gradeForSign < 1 || gradeForExec < 1)
-		throw Form::GradeTooLowException();
-	if (gradeForSign > 150 || gradeForExec > 150)
+	{
+		std::cout << "the form has not been created\n";
 		throw Form::GradeTooHighException();
+	}
+	if (gradeForSign > 150 || gradeForExec > 150)
+	{
+		std::cout << "the form has not been created\n";
+		throw Form::GradeTooLowException();
+	}
 }
 
 Form::Form(const Form & other) : m_name(other.m_name), sign(other.sign), gradeToSign(0), gradeToExecute(0)
@@ -31,6 +37,9 @@ const char *Form::GradeTooHighException::what() const throw() {
 const char *Form::GradeTooLowException::what() const throw() {
 	return ("Grade is too low\n");
 }
+const char *Form::FormSignedException::what() const throw() {
+	return ("the form has already been signed\n");
+}
 
 std::string		Form::getName() const{
 	return (this->m_name);
@@ -49,15 +58,19 @@ unsigned int 	Form::getGradeToExecute() const {
 }
 
 void 			Form::beSigned(const Bureaucrat& bureaucrat) {
-	if (bureaucrat.getGrade() <= this->getGradeToSign())
+	if (bureaucrat.getGrade() <= this->getGradeToSign() && !this->sign)
 	{
 		this->sign = true;
 		std::cout << "the form has been signed by " << bureaucrat.getName() << std::endl;
 	}
-	else
+	else if (bureaucrat.getGrade() > this->getGradeToSign())
 	{
-		std::cout << bureaucrat.getName() << " cannot sign " << this->m_name << " because the grade is too low\n";
+		std::cout << bureaucrat.getName() << " cannot sign " << this->m_name << " because his grade is too low\n";
 		throw Form::GradeTooLowException();
+	}
+	else if (this->sign)
+	{
+		throw Form::FormSignedException();
 	}
 }
 

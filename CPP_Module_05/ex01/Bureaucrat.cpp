@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 
 Bureaucrat::~Bureaucrat() {}
 
-void Bureaucrat::signForm(Form form) {
+void Bureaucrat::signForm(Form &form) {
 	form.beSigned(*this);
 }
 
