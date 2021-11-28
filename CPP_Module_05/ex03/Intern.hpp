@@ -13,7 +13,10 @@ public:
 	~Intern() {};
 	Intern(const Intern& src);
 	Intern& operator=(const Intern& src);
-	Form 		*makeForm(const std::string& form_name, std::string target_name);
+	Form 				*makeForm(const std::string& form_name, std::string target_name);
+	static Form 		*PresidentialPardon(std::string target);
+	static Form 		*RobotomyRequest(std::string target);
+	static Form 		*ShrubberyCreation(std::string target);
 	class InternException : public std::exception
 	{
 		virtual const char* what() const throw();
