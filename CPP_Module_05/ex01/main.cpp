@@ -9,6 +9,7 @@ int 		main()
 		Form			form("form", 10, 10);
 		std::cout << form;
 		vasya.signForm(form);
+		std::cout << "-------------------------------------------\n";
 	}
 	catch (std::exception & e)
 	{
@@ -20,6 +21,7 @@ int 		main()
 
 		Form			form2("form", 1, 2);
 		form2.beSigned(vasya);
+		std::cout << "-------------------------------------------\n";
 	}
 	catch (std::exception & e)
 	{
@@ -27,6 +29,7 @@ int 		main()
 	}
 	try
 	{
+		std::cout << "-------------------------------------------\n";
 		Form			form2("form", 0, 2);
 	}
 	catch (std::exception & e)

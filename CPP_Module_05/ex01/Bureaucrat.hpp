@@ -37,7 +37,7 @@ private:
 	Bureaucrat(const Bureaucrat & other);
 	Bureaucrat &operator=(const Bureaucrat & other);
 	const std::string 		name;
-	int						grade;
+	unsigned int			grade;
 };
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const & bureaucrat);

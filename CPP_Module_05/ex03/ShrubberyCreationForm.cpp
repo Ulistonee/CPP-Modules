@@ -1,10 +1,9 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyForm", 145,137){
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyForm", 145,137), target("target") {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &m_target) : Form("ShrubberyForm", 145,137){
-	this->target = m_target;
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &m_target) : Form("ShrubberyForm", 145,137), target(m_target){
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other){
@@ -23,13 +22,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 void						ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	if (this->sign && executor.getGrade() <= this->gradeToExecute)
 	{
+		std::cout << executor.getName() << " executes form\n";
 		std::ofstream outf(target + "_shrubbery");
 		if (!outf)
 		{
 			std::cout << "Error with output file\n";
 		}
 		std::string 	tree;
-		tree = ".\n"
+		tree = "\n"
 			   "◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯\n"
 			   "◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯◯\n"
 			   "┈◯◯╰┻◯◯╋◯┻◯◯╯◯╯┈\n"
@@ -38,12 +38,14 @@ void						ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			   "┈┈╱╲┈┈┃┋┋┃┈┈┈╱┈┈\n"
 			   "━━━━━━┻┻┻┻━━━━━━\n"
 			   "\n";
+		std::cout << "the shrubbery has been created\n";
 		outf << tree;
 		outf.close();
 	}
 	else if (!this->sign)
 	{
-		std::cout << "the form has not been signed yet\n";
+		std::cout << "no signature!\n";
+		throw ShrubberyCreationForm::FormNotSignedException();
 	}
 	else
 	{

@@ -14,34 +14,38 @@ class Bureaucrat;
 class Form
 {
 public:
+
 	Form();
-	Form(const std::string& name,
-		 unsigned int gradeForSign, unsigned int gradeForExec);
-	~Form();
+	Form(const std::string& name, unsigned int gradeForSign, unsigned int gradeForExec);
+	Form(const Form & other);
+	virtual ~Form();
+	Form &operator=(const Form & other);
 
-	bool 			getSign() const;
-	unsigned int 	getGradeToSign() const;
-	unsigned int 	getGradeToExecute() const;
-	std::string 	getName() const;
-	void 			beSigned(const Bureaucrat& bureaucrat);
+	virtual bool 			getSign() const;
+	virtual unsigned int 	getGradeToSign() const;
+	virtual unsigned int 	getGradeToExecute() const;
+	virtual std::string 	getName() const;
+	virtual void 			beSigned(const Bureaucrat& bureaucrat);
+	virtual void 			execute(Bureaucrat const & executor) const = 0;
 
 
-private:
+protected:
 	class	GradeTooHighException : public std::exception
 	{
-		const char* what() const throw();
+		virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-		const char* what() const throw();
+		virtual const char* what() const throw();
 	};
 	class FormSignedException : public std::exception
 	{
-		const char* what() const throw();
+		virtual const char* what() const throw();
 	};
-
-	Form(const Form & other);
-	Form &operator=(const Form & other);
+	class FormNotSignedException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 
 	const std::string 	m_name;
 	bool 				sign;

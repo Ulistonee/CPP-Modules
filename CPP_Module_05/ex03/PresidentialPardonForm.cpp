@@ -1,10 +1,9 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25,5){
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25,5), target("target") {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string &m_target) : Form("PresidentialPardonForm", 25,5){
-	this->target = m_target;
+PresidentialPardonForm::PresidentialPardonForm(std::string const &m_target) : Form("PresidentialPardonForm", 25,5), target(m_target) {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other){
@@ -23,11 +22,13 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 void						PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	if (this->sign && executor.getGrade() <= this->gradeToExecute)
 	{
+		std::cout << executor.getName() << " executes form\n";
 		std::cout << target << " has been pardoned by Zafod Beeblebrox\n";
 	}
 	else if (!this->sign)
 	{
-		std::cout << "the form has not been signed yet\n";
+		std::cout << "no signature!\n";
+		throw PresidentialPardonForm::FormNotSignedException();
 	}
 	else
 	{

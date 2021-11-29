@@ -42,12 +42,15 @@ protected:
 	{
 		virtual const char* what() const throw();
 	};
+	class FormNotSignedException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 
 	const std::string 	m_name;
 	bool 				sign;
 	const unsigned int	gradeToSign;
 	const unsigned int	gradeToExecute;
-	std::string 		target;
 };
 
 std::ostream &	operator<<(std::ostream & o, Form const & form);

@@ -1,11 +1,11 @@
 #include "Form.hpp"
 
-Form::Form() : m_name("form"), sign(false), gradeToSign(1), gradeToExecute(1), target("target")
+Form::Form() : m_name("form"), sign(false), gradeToSign(1), gradeToExecute(1)
 {
 }
 
 Form::Form(const std::string& name, unsigned int gradeForSign,
-		   unsigned int gradeForExec) : m_name(name), sign(false), gradeToSign(gradeForSign), gradeToExecute(gradeForExec), target("target"){
+		   unsigned int gradeForExec) : m_name(name), sign(false), gradeToSign(gradeForSign), gradeToExecute(gradeForExec){
 	if (gradeForSign < 1 || gradeForExec < 1)
 	{
 		std::cout << "the form has not been created\n";
@@ -39,6 +39,10 @@ const char *Form::GradeTooLowException::what() const throw() {
 }
 const char *Form::FormSignedException::what() const throw() {
 	return ("the form has already been signed\n");
+}
+
+const char *Form::FormNotSignedException::what() const throw() {
+	return ("the form has not been signed yet\n");
 }
 
 std::string		Form::getName() const{

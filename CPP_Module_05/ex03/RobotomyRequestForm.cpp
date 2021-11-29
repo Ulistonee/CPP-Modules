@@ -1,11 +1,9 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72,45){
-	this->target = "default";
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72,45), target("target") {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string &m_target) : Form("RobotomyRequestForm", 72,45){
-	this->target = m_target;
+RobotomyRequestForm::RobotomyRequestForm(std::string const &m_target) : Form("RobotomyRequestForm", 72,45), target(m_target) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) {
@@ -24,12 +22,14 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 void						RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	if (this->sign && executor.getGrade() <= this->gradeToExecute)
 	{
-		std::cout << target << " is making drilling noises\n";
+		std::cout << executor.getName() << " executes form\n";
+		std::cout << "some drilling noises\n";
 		std::cout << target << " has been robotomized succesfully 50% of the time\n";
 	}
 	else if (!this->sign)
 	{
-		throw RobotomyRequestForm::FormSignedException();
+		std::cout << "no signature!\n";
+		throw RobotomyRequestForm::FormNotSignedException();
 	}
 	else
 	{

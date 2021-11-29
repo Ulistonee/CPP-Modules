@@ -41,6 +41,10 @@ const char *Form::FormSignedException::what() const throw() {
 	return ("the form has already been signed\n");
 }
 
+const char *Form::FormNotSignedException::what() const throw() {
+	return ("the form has not been signed yet\n");
+}
+
 std::string		Form::getName() const{
 	return (this->m_name);
 }

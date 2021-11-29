@@ -10,9 +10,7 @@ class Intern
 {
 public:
 	Intern() {};
-	~Intern() {};
-	Intern(const Intern& src);
-	Intern& operator=(const Intern& src);
+	~Intern(){};
 	Form 				*makeForm(const std::string& form_name, std::string target_name);
 	static Form 		*PresidentialPardon(std::string target);
 	static Form 		*RobotomyRequest(std::string target);
@@ -21,4 +19,8 @@ public:
 	{
 		virtual const char* what() const throw();
 	};
+
+private:
+	Intern(const Intern& src);
+	Intern& operator=(const Intern& src);
 };
