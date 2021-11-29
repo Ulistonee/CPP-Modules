@@ -21,4 +21,22 @@ int 		main()
 	{
 		std::cout << e.what();
 	}
+	try
+	{
+		Intern 						intern;
+		Bureaucrat					bureaucrat("bureaucrat", 1);
+		Form						*form;
+
+		std::cout << "-------------------------------------------\n";
+		std::cout << "trying unknown form\n";
+		std::cout << "-------------------------------------------\n";
+		form = intern.makeForm("some form", "criminal");
+		bureaucrat.signForm(form);
+		bureaucrat.executeForm(*form);
+		delete form;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what();
+	}
 }

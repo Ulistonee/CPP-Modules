@@ -1,3 +1,6 @@
+#ifndef PRESIDENTIAL_PARDON_FORM_H
+#define PRESIDENTIAL_PARDON_FORM_H
+
 #include "Form.hpp"
 
 class PresidentialPardonForm : public Form
@@ -14,5 +17,7 @@ public:
 
 	std::string 			target;
 };
+
+#endif
 
 std::ostream &	operator<<(std::ostream & o, PresidentialPardonForm const & form);

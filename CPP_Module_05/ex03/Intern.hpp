@@ -17,7 +17,7 @@ public:
 	static Form 		*ShrubberyCreation(std::string target);
 	class InternException : public std::exception
 	{
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 
 private:
