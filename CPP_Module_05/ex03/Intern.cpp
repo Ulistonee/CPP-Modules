@@ -1,5 +1,9 @@
 #include "Intern.hpp"
 
+Intern::Intern() {};
+
+Intern::~Intern() {};
+
 Form* Intern::PresidentialPardon(std::string target) {
 	return new PresidentialPardonForm(target);
 }

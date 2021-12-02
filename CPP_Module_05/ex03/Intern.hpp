@@ -9,8 +9,8 @@ class Form;
 class Intern
 {
 public:
-	Intern() {};
-	~Intern(){};
+	~Intern();
+	Intern();
 	Form 				*makeForm(const std::string& form_name, std::string target_name);
 	static Form 		*PresidentialPardon(std::string target);
 	static Form 		*RobotomyRequest(std::string target);

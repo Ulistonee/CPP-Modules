@@ -31,3 +31,5 @@ CPP_Module_05/ex01/bureaucrat
 CPP_Module_05/ex01/*.o
 CPP_Module_05/ex02/*.o
 CPP_Module_05/ex02/*.bureaucrat
+CPP_Module_06/ex00/*.o
+CPP_Module_06/ex00/convert
