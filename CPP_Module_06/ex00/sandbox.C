@@ -1,13 +1,32 @@
 # include <iostream>
 # include <cmath>
 # include <climits>
-
+#include <sstream>
+#include <typeinfo>
+#include <stdio.h>
 int 		main()
 {
-	float	a = 1.5f;
-	int 	b = 1;
-	char 	c = b;
+	std::string 		line = "nan";
 
-	std::cout << static_cast<char>(b) << "\n";
-	std::cout << b << "\n";
+	int 				x;
+	float 				a;
+	char 				b;
+	double 				c;
+	a = atof(line.c_str());
+	std::cout << typeid(a).name() << '\n';
+
+	x = static_cast<int>(a);
+	b = static_cast<char>(a);
+	c = static_cast<double>(a);
+	std::cout << "int: " << x << " type: " << typeid(x).name()  << '\n';
+	std::cout << "char: " << b << " type: " << typeid(b).name()  << '\n';
+	std::cout << "double: " << c << " type: " << typeid(c).name()  << '\n';
+	std::cout << "float: " << a <<  " type: " << typeid(a).name()  << '\n';
+	printf("%f\n", a);
+	if (!std::isnan(a) && !std::isprint(b) && !std::isinf(a))
+	{
+		std::cout << "char: Non displayable" << std::endl;
+	}
+//	std::cout << "char: " << b << '\n';
+//	std::cout << "double: " << c << '\n';
 }

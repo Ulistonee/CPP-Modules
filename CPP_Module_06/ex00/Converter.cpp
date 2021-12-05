@@ -1,4 +1,6 @@
+
 #include "Converter.hpp"
+
 
 Converter::Converter() {}
 
@@ -10,47 +12,32 @@ Converter &Converter::operator=(const Converter &) {
 	return (*this);
 }
 
-char 		Converter::toChar(char *str) {
-	return (str[0]);
-}
+void 		Converter::converter(char *str){
+	float 		rep;
 
-bool 		Converter::parser(char *str) {
-	std::string 	line(str);
+	rep = atof(str);
 
-	if (!line.empty())
+	if (!isprint(static_cast<char>(rep)) && !std::isnan(rep))
 	{
-		if (line.length() == 1 && !std::isdigit(str[0]))
-		{
-			char_rep = str[0];
-			return (true);
-		}
-		else if (std::isdigit(str[0]) && std::stoi(line))
-		{
-			int_rep = std::stoi(line);
-			return (true);
-		}
-		else if (std::stof(line))
-		{
-			float_rep = std::stof(line);
-			return (true);
-		}
-		else if (std::stod(line))
-		{
-			double_rep = std::stod(line);
-			return (true);
-		}
+		std::cout << "char: " << "Non displayable" << std::endl;
+		std::cout << "int: " << static_cast<int>(rep) << std::endl;
+		std::cout << "float: " << static_cast<float>(rep) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(rep) << ".0"<< std::endl;
 	}
-	std::cout << "the string is empty\n";
-	return (false);
-}
+	else if (std::isnan(rep))
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << static_cast<float>(rep) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double >(rep) << std::endl;
+	}
+	else
+	{
+		std::cout << "char: " << static_cast<char>(rep) << std::endl;
+		std::cout << "int: " << static_cast<int>(rep) << std::endl;
+		std::cout << "float: " << static_cast<float>(rep) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double >(rep) << ".0"<< std::endl;
+	}
 
-void 		Converter::converter(char *) {
-	if (char_rep)
-		std::cout << static_cast<char>(char_rep) << "\n";
-	else if (int_rep)
-		std::cout << static_cast<int>(int_rep) << "\n";
-	else if (float_rep)
-		std::cout << static_cast<float>(float_rep) << "\n";
-	else if (double_rep)
-		std::cout << static_cast<double>(double_rep) << "\n";
+
 }

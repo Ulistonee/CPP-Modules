@@ -5,6 +5,12 @@
 # include <climits>
 # include <cctype>
 # include <string>
+# include <iostream>
+# include <iomanip>
+# include <cmath>
+# include <cstring>
+# include <sstream>
+
 
 class Converter
 {
@@ -14,16 +20,8 @@ public:
 	Converter(const Converter &);
 	Converter	&operator=(const Converter &);
 
+	void			converter(char *str);
 
-	char 			toChar(char *str);
-	void			converter(char *);
-	bool 			parser(char *str);
-
-private:
-	char 			char_rep;
-	int				int_rep;
-	float 			float_rep;
-	double 			double_rep;
 };
 
 #endif
