@@ -19,9 +19,7 @@ public:
 	~Converter();
 	Converter(const Converter &);
 	Converter	&operator=(const Converter &);
-
 	void			converter(char *str);
-
 };
 
 #endif
