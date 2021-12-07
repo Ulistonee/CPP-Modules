@@ -1,6 +1,10 @@
-NAME = reinterpret
+NAME = identifier
 
 SRCS =		main.cpp \
+			Base.cpp \
+			A.cpp \
+			B.cpp \
+			C.cpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -8,7 +12,10 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE =
+INCLUDE = 			Base.hpp \
+          			A.hpp \
+          			B.hpp \
+          			C.hpp
 
 RM = rm -f
 
