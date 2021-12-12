@@ -24,6 +24,7 @@ int 	main()
 	uintptr_t 		p1;
 	uintptr_t 		p2;
 
+
 	data.name = "Alex";
 	data.age = 42;
 	p1 = serialize(&data);

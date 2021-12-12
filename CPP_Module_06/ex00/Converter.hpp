@@ -10,7 +10,7 @@
 # include <cmath>
 # include <cstring>
 # include <sstream>
-#include <cstdlib>
+# include <cstdlib>
 
 
 class Converter
@@ -21,9 +21,10 @@ public:
 	Converter(const Converter &);
 	Converter	&operator=(const Converter &);
 	void			converter(char *str);
+
 private:
 	void 			printInt(double rep);
-	void 			printChar(double rep);
+	void 			printChar(char *str);
 	void 			printDouble(double rep);
 	void 			printFloat(double rep);
 };

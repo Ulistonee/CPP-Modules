@@ -9,18 +9,45 @@ Converter &Converter::operator=(const Converter &) {
 	return (*this);
 }
 
-void 		Converter::printChar(double rep) {
-	if (!isprint(static_cast<char>(rep)) && !std::isnan(rep) && !std::isinf(rep))
+void 		Converter::printChar(char *str) {
+	char 		*end = nullptr;
+	double 		rep;
+
+	rep = std::strtod(str, &end);
+	if (!*end)
 	{
-		std::cout << "char: Non displayable" << std::endl;
-	}
-	else if (std::isnan(rep) || std::isinf(rep))
-	{
-		std::cout << "char: impossible" << std::endl;
+		if (!isprint(static_cast<char>(rep)) && !std::isnan(rep) && !std::isinf(rep))
+		{
+			std::cout << "char: Non displayable" << std::endl;
+		}
+		else if (std::isnan(rep) || std::isinf(rep))
+		{
+			std::cout << "char: impossible" << std::endl;
+		}
+		else
+		{
+			std::cout << "char: " << static_cast<char>(rep) << std::endl;
+		}
 	}
 	else
 	{
-		std::cout << "char: " << static_cast<char>(rep) << std::endl;
+		std::string 		line(str);
+
+		if (line.length() == 1)
+		{
+			if (!isprint(str[0]))
+			{
+				std::cout << "char: Non displayable" << std::endl;
+			}
+			else
+			{
+				std::cout << "char: " << str[0] << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "char: impossible" << std::endl;
+		}
 	}
 }
 
@@ -66,13 +93,11 @@ void 		Converter::printDouble(double rep) {
 }
 
 void 		Converter::converter(char *str){
-	char 		*end;
 	double 		rep;
 
-	end = str;
-	rep = std::strtod(str, &end);
-//	rep = atof(str);
-	this->printChar(rep);
+	rep = atof(str);
+	rep = atof(str);
+	this->printChar(str);
 	this->printInt(rep);
 	this->printFloat(rep);
 	this->printDouble(rep);
