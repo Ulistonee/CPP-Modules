@@ -10,12 +10,11 @@ Converter &Converter::operator=(const Converter &) {
 }
 
 void 		Converter::printChar(char *str) {
-	double 			rep;
-	char 			*end;
+	char 		*end = nullptr;
+	double 		rep;
 
 	rep = std::strtod(str, &end);
-
-	if (rep)
+	if (!*end)
 	{
 		if (!isprint(static_cast<char>(rep)) && !std::isnan(rep) && !std::isinf(rep))
 		{
@@ -32,17 +31,17 @@ void 		Converter::printChar(char *str) {
 	}
 	else
 	{
-		std::string 	line(end);
+		std::string 		line(str);
 
 		if (line.length() == 1)
 		{
-			if (!isprint(end[0]))
+			if (!isprint(str[0]))
 			{
 				std::cout << "char: Non displayable" << std::endl;
 			}
 			else
 			{
-				std::cout << "char: " << static_cast<char>(end[0]) << std::endl;
+				std::cout << "char: " << str[0] << std::endl;
 			}
 		}
 		else
@@ -96,6 +95,7 @@ void 		Converter::printDouble(double rep) {
 void 		Converter::converter(char *str){
 	double 		rep;
 
+	rep = atof(str);
 	rep = atof(str);
 	this->printChar(str);
 	this->printInt(rep);
