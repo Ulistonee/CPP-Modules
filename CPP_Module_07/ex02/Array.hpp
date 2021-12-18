@@ -19,8 +19,8 @@ public:
 		const char *what() const throw() {
 			return ("This element is out of the limits");
 		};
-
 	};
+
 	Array<T>()
 	{
 		array = new T[0];
@@ -28,23 +28,23 @@ public:
 	}
 	Array<T>(unsigned int n)
 	{
-		m_size = n;
 		array = new T[n];
+		m_size = n;
 	}
 	Array<T>(const Array<T>& other) :
 			array(new T[other.m_size]),
 			m_size(other.m_size) {
 		for (unsigned int i = 0; i < other.m_size; ++i)
-			array[i] = other.array[i];
+			this->array[i] = other.array[i];
 	}
 	Array<T>	&operator=(const Array<T> &other)
 	{
 		if (this != &other) {
-			delete [] array;
+			delete [] this->array;
 			this->m_size = other.m_size;
 			this->array = new T[other.m_size];
 			for (unsigned int i = 0; i < other.m_size; ++i)
-				array[i] = other.array[i];
+				this->array[i] = other.array[i];
 		}
 		return (*this);
 	}
@@ -65,6 +65,6 @@ public:
 private:
 	T				*array;
 	unsigned int	m_size;
-	};
+};
 
 #endif
