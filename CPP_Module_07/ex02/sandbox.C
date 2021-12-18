@@ -6,10 +6,11 @@
 # include <cmath>
 # include <cstdio>
 # include <stdexcept>
+# include <typeinfo>
 
 template <typename T>
 
-T const & max(T const & x, T const & y)
+T & max(T & x, T & y)
 {
 	return (x >= y ? x : y);
 }
@@ -17,7 +18,9 @@ T const & max(T const & x, T const & y)
 
 int 	main()
 {
+	int 	*a = new int();
 
+	std::cout << *a << std::endl;
 
 	return 0;
 }

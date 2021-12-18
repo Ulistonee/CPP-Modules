@@ -33,3 +33,5 @@ CPP_Module_05/ex02/*.o
 CPP_Module_05/ex02/*.bureaucrat
 CPP_Module_06/ex00/*.o
 CPP_Module_06/ex00/convert
+CPP_Module_07/ex00/*.o
+CPP_Module_07/ex00/template

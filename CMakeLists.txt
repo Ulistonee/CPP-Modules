@@ -4,8 +4,8 @@ project(CPP_Modules)
 set(CMAKE_CXX_STANDARD 98)
 
 FILE(GLOB CPP_SRC
-		CPP_Module_06/ex00/*.cpp
-		CPP_Module_06/ex00/*.hpp)
+		CPP_Module_07/ex01/*.cpp
+		CPP_Module_07/ex01/*.hpp)
 
 add_executable(CPP_Modules
 	${CPP_SRC}

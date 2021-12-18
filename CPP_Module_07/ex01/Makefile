@@ -9,7 +9,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDE =	Templates.hpp
+INCLUDE =	iter.hpp
 
 RM = rm -f
 
