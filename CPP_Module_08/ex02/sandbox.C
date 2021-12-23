@@ -11,29 +11,29 @@
 # include <set>
 # include <map>
 # include <algorithm>
+# include <iterator>
 # include <stack>
+# include "mutantstack.hpp"
 
 int 	main()
 {
-	std::stack<int>		stack;
-	stack.push(1);
-	stack.push(2);
-	stack.push(3);
-	stack.push(4);
+	std::stack<std::string>			stack;
 
-//	stack.pop();
-//	stack.pop();
+	stack.push("a");
+	stack.push("b");
+	stack.push("c");
 
-	while (!stack.empty())
-	{
-		std::cout << ' ' << stack.top();
-		stack.pop();
-	}
-	while (!stack.empty())
-	{
-		std::cout << ' ' << stack.top();
-//		stack.pop();
-	}
-	std::cout << std::endl;
-	return 0;
+	std::cout << stack.top() << std::endl;
+
+	MutantStack<int>			a;
+
+	a.push(1);
+
+	MutantStack<int>			b;
+
+	b = a;
+
+	std::cout << b.top() << std::endl;
+	return (0);
 }
+

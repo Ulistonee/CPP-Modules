@@ -18,7 +18,6 @@ Span 		&Span::operator=(const Span &other) {
 	if (this != &other)
 	{
 		this->size = other.size;
-		this->mySet.clear();
 		std::multiset<int>::const_iterator 	it;
 		for(it = other.mySet.begin(); it != other.mySet.end(); ++it)
 		{
@@ -29,7 +28,6 @@ Span 		&Span::operator=(const Span &other) {
 }
 
 Span::~Span() {
-	this->mySet.clear();
 }
 
 int 		Span::shortestSpan() {
@@ -46,9 +44,7 @@ int 		Span::shortestSpan() {
 	{
 		diff = *it - old;
 		if (min_diff > diff)
-		{
 			min_diff = diff;
-		}
 		old = *it;
 	}
 	return (min_diff);

@@ -35,3 +35,9 @@ CPP_Module_06/ex00/*.o
 CPP_Module_06/ex00/convert
 CPP_Module_07/ex00/*.o
 CPP_Module_07/ex00/template
+CPP_Module_08/ex00/*.o
+CPP_Module_08/ex00/easyfind
+CPP_Module_08/ex01/*.o
+CPP_Module_08/ex01/span
+CPP_Module_08/ex02/*.o
+CPP_Module_08/ex02/mutantstack

@@ -23,18 +23,12 @@ public:
 	typedef typename std::stack<T>::container_type::iterator iterator;
 	MutantStack() : std::stack<T>() {};
 	MutantStack(const MutantStack& other) : std::stack<T>(other) {};
-	MutantStack &operator=(MutantStack& other) {
-		if (this != &other) {
-			for (int i = 0; i < (int)this->size(); ++i)
-				this->pop();
-			iterator it = other.begin();
-			iterator ite = other.end();
-			while (it != ite) {
-				this->push(*it);
-				++it;
-			}
+	MutantStack &operator=(const MutantStack& other) {
+		if (this != &other)
+		{
+			std::stack<T>::operator=(other);
 		}
-		return *this;
+		return (*this);
 	};
 	~MutantStack() {};
 
@@ -44,3 +38,4 @@ public:
 };
 
 #endif
+

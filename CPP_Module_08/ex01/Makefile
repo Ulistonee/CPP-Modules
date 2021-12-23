@@ -12,7 +12,7 @@ CC = c++
 FLAGS = -Wall -Wextra -Werror
 
 INCLUDE =	span.hpp \
-			span.ipp
+
 
 RM = rm -f
 

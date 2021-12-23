@@ -26,7 +26,12 @@ public:
 	void				addNumber(int n);
 
 	template<typename Iterator>
-	void				addNumbers(Iterator begin, Iterator end);
+	void				addNumbers(Iterator begin, Iterator end)
+	{
+		if (this->mySet.size() + std::distance(begin, end) > this->size)
+			throw Span::NotEnoughSpace();
+		this->mySet.insert(begin, end);
+	}
 	int 				shortestSpan();
 	int					longestSpan();
 	void				print();
@@ -50,7 +55,6 @@ public:
 private:
 	unsigned int			size;
 	std::multiset<int>		mySet;
-	std::multiset<int>		difference;
 };
 
 #endif
